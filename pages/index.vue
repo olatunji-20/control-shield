@@ -4,5 +4,6 @@
     <Hero />
     <LandingMid />
     <Roadmap />
+    <Footbar />
   </div>
 </template>

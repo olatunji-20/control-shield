@@ -1,9 +1,9 @@
 <template>
   <div>
     <Navbar />
-    <Hero />
+    <LandingHero />
     <LandingMid />
-    <Roadmap />
-    <Footbar />
+    <LandingRoadmap />
+    <LandingFootbar />
   </div>
 </template>

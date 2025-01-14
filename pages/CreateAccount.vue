@@ -1,6 +1,5 @@
 <template>
-    <div>
-      <div class="mx-auto w-1/3 my-12">
+      <div class="mx-auto w-1/3">
           <h1 class="font-bold text-2xl">Create account</h1>
           <p class="font-thin text-md mb-6">Sign up to continue.</p>
           <UForm>
@@ -23,7 +22,6 @@
           <p class="font-medium w-12 mx-auto text-center bg-black relative bottom-4">OR</p>
           <UButton label="Sign in with Google" block class="h-[60px] rounded-none flex text-black bg-gray-200"></UButton>
       </div>
-    </div>
   </template>
   
   <script setup>

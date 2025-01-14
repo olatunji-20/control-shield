@@ -5,10 +5,10 @@
     <p class="font-thin text-xl">Upcoming Features and Updates</p>
     <div class="p-32">
         <div class="my-6 relative text-center" style="background-image: url(/images/roadmap-ellipse.svg); background-position: center; background-size: cover;">
-            <p class="font-bold w-28 py-2 bg-red-600 mx-auto">Phase 1</p>
-            <p class="font-bold w-28 py-2 bg-red-600 mx-auto mt-[550px]">Phase 2</p>
-            <p class="font-bold w-28 py-2 bg-red-600 mx-auto mt-[150px]">Phase 3</p>
-            <p class="font-bold w-28 py-2 bg-red-600 mx-auto mt-56">Phase 4</p>
+            <p class="font-bold w-28 py-2 bg-[#17292F] border border-gray-800 mx-auto">Phase 1</p>
+            <p class="font-bold w-28 py-2 bg-[#17292F] border border-gray-800 mx-auto mt-[550px]">Phase 2</p>
+            <p class="font-bold w-28 py-2 bg-[#17292F] border border-gray-800 mx-auto mt-[150px]">Phase 3</p>
+            <p class="font-bold w-28 py-2 bg-[#17292F] border border-gray-800 mx-auto mt-56">Phase 4</p>
     
             <div class="border border-gray-800 w-[280px] bg-[#141923] absolute text-left px-4 py-8 top-0 right-0">
                 <p class="font-bold">Detailed Risk Quantification Calculator</p>
@@ -30,11 +30,11 @@
                 <p class="font-bold">User ranking for contributions</p>
                 <p class="text-md pt-4 font-thin leading-8">Users will earn a ranking for whitepapers/briefs submitted and other contributions they make to Control Shield. Their profile will be highlighted on a leaderboard.</p>
             </div>
-            <div class="border border-green-500 z-[-5] h-[100%] absolute left-[50%] top-0"></div>
-            <div class="border border-green-500 w-[250px] z-[-5] absolute left-[50%] top-5"></div>
-            <div class="border border-green-500 w-[250px] z-[-5] absolute right-[50%] top-[610px]"></div>
-            <div class="border border-green-500 w-[250px] z-[-5] absolute left-[50%] bottom-[280px]"></div>
-            <div class="border border-green-500 w-[250px] z-[-5] absolute right-[50%] bottom-5"></div>
+            <div class="border border-gray-800 z-[-5] h-[100%] absolute left-[50%] top-0"></div>
+            <div class="border border-gray-800 w-[250px] z-[-5] absolute left-[50%] top-5"></div>
+            <div class="border border-gray-800 w-[250px] z-[-5] absolute right-[50%] top-[610px]"></div>
+            <div class="border border-gray-800 w-[250px] z-[-5] absolute left-[50%] bottom-[280px]"></div>
+            <div class="border border-gray-800 w-[250px] z-[-5] absolute right-[50%] bottom-5"></div>
         </div>
     </div>
     <div class="bg-gradient-to-r from-[#52B49C] to-[#7784CA]">

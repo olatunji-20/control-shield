@@ -22,7 +22,7 @@
         </div>
         <div class="w-[47%] flex items-center">
             <div class="w-[100%] h-[85%] bg-shield-green rounded-xl flex items-center" style="background-image: linear-gradient(to right, #52B49C , #7784CA);">
-                <div class="border bg-grey-900 w-[250px] h-[200px] mx-auto bg-black">
+                <div class="w-[250px] h-[200px] mx-auto bg-black">
                     <!-- <img src="/public/images/1898co.png" alt="1898co-logo" class="object-contain" /> -->
                 </div>
             </div>
@@ -32,7 +32,7 @@
     <div class="rounded-lg py-8 flex flex-row justify-between">
         <div class="w-[47%] flex items-center">
             <div class="w-[100%] h-[85%] bg-shield-green rounded-xl flex items-center" style="background-image: linear-gradient(to right, #52B49C , #7784CA);">
-                <div class="border bg-grey-900 w-[250px] h-[200px] mx-auto bg-black">
+                <div class="w-[250px] h-[200px] mx-auto bg-black">
                     <!-- <img src="/public/images/1898co.png" alt="1898co-logo" class="object-contain" /> -->
                 </div>
             </div>
@@ -55,7 +55,7 @@
         </div>
         <div class="w-[47%] flex items-center">
             <div class="w-[100%] h-[95%] bg-shield-green rounded-xl flex items-center" style="background-image: linear-gradient(to right, #52B49C , #7784CA);">
-                <div class="border bg-grey-900 w-[250px] h-[200px] mx-auto bg-black">
+                <div class="w-[250px] h-[200px] mx-auto bg-black">
                     <!-- <img src="/public/images/1898co.png" alt="1898co-logo" class="object-contain" /> -->
                 </div>
             </div>

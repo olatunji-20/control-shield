@@ -1,7 +1,9 @@
 <template>
-  <div class="h-[100vh]">
+  <div class="h-[100vh] flex flex-col justify-between">
     <Signbar />
-        <slot />
+    <div>
+      <slot />
+    </div>
     <SignFoot />
   </div>
 </template>

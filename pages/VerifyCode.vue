@@ -1,6 +1,6 @@
 <template>
     <div>
-      <div class="mx-auto w-1/3 mt-16">
+      <div class="mx-auto w-1/3">
           <h1 class="font-bold text-2xl">Forgot password</h1>
           <p class="font-thin text-md mb-16">Enter the code sent to "******@gmail.com".</p>
           <div class="flex justify-between">

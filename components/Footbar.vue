@@ -3,7 +3,7 @@
     <div class="pb-4 border-b flex flex-row justify-between">
         <div class="w-[20%] h-[150px]">
             <div class="w-[100%] h-[45px]">
-                <img src="/public/images/control-shield-logo.png" alt="control-shield-logo" />
+                <img src="/public/landing-img/control-shield-logo.png" alt="control-shield-logo" />
             </div>
             <div class="size-[20px] rounded-full ml-2 my-4 border"></div>
             <p class="text-xs font-thin ml-2">© 2025, All Rights Reserved</p>

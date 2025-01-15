@@ -6,10 +6,11 @@ export default {
     extend: {
       colors: {
         shield: {
-          green: "#193032",
+          dgreen: "#193032",
           black: "#0F111A",
+          dark: "#17292F",
           blight: "#DCE4FE",
-          bgreen: "#46D3B0"
+          green: "#46D3B0",
         }
       }
     },

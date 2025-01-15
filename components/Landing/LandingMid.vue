@@ -7,7 +7,7 @@
         </div>
         <div class="w-[47%] flex items-center">
             <div class="w-[300px] h-[150px] mx-auto">
-                <img src="/public/images/1898co.png" alt="1898co-logo" class="object-contain" />
+                <img src="/public/landing-img/1898co.png" alt="1898co-logo" class="object-contain" />
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
         <div class="w-[47%] flex items-center">
             <div class="w-[100%] h-[85%] bg-shield-green rounded-xl flex items-center" style="background-image: linear-gradient(to right, #52B49C , #7784CA);">
                 <div class="w-[250px] h-[200px] mx-auto bg-black">
-                    <!-- <img src="/public/images/1898co.png" alt="1898co-logo" class="object-contain" /> -->
+                    <!-- <img src="/public/landing-img/1898co.png" alt="1898co-logo" class="object-contain" /> -->
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
         <div class="w-[47%] flex items-center">
             <div class="w-[100%] h-[85%] bg-shield-green rounded-xl flex items-center" style="background-image: linear-gradient(to right, #52B49C , #7784CA);">
                 <div class="w-[250px] h-[200px] mx-auto bg-black">
-                    <!-- <img src="/public/images/1898co.png" alt="1898co-logo" class="object-contain" /> -->
+                    <!-- <img src="/public/landing-img/1898co.png" alt="1898co-logo" class="object-contain" /> -->
                 </div>
             </div>
         </div>
@@ -56,7 +56,7 @@
         <div class="w-[47%] flex items-center">
             <div class="w-[100%] h-[95%] bg-shield-green rounded-xl flex items-center" style="background-image: linear-gradient(to right, #52B49C , #7784CA);">
                 <div class="w-[250px] h-[200px] mx-auto bg-black">
-                    <!-- <img src="/public/images/1898co.png" alt="1898co-logo" class="object-contain" /> -->
+                    <!-- <img src="/public/landing-img/1898co.png" alt="1898co-logo" class="object-contain" /> -->
                 </div>
             </div>
         </div>

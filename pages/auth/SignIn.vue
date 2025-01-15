@@ -22,7 +22,7 @@
                     </template>
                 </UButton>
             </UForm>
-            <NuxtLink to="/forgotpassword">
+            <NuxtLink to="/auth/forgotpassword">
                 <p class="font-thin text-md text-center py-8">Forgot password?</p>
             </NuxtLink>
             <hr class="pt-6" />

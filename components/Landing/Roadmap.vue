@@ -122,17 +122,27 @@
           Enjoy premium first hand offers when you join us
         </p>
         <div
-          class="my-12 mx-auto grid grid-rows-2 grid-flow-col gap-4 text-shield-subgreen w-3/5"
+          class="my-12 mx-auto grid grid-rows-2 grid-flow-col gap-4 text-shield-subgreen w-4/5"
         >
-          <p class="p-3 bg-white rounded-lg text-md">Annual Threat Reports</p>
-          <p class="p-3 bg-white rounded-lg text-md relative left-16">
+          <p class="p-3 bg-white rounded-lg font-semibold text-md">
+            Annual Threat Reports
+          </p>
+          <p
+            class="p-3 bg-white rounded-lg font-semibold text-md relative left-16"
+          >
             VAR discounts
           </p>
-          <p class="p-3 bg-white rounded-lg text-md">Actionable Whitepapers</p>
-          <p class="p-3 bg-white rounded-lg text-md relative left-16">
+          <p class="p-3 bg-white rounded-lg font-semibold text-md">
+            Actionable Whitepapers
+          </p>
+          <p
+            class="p-3 bg-white rounded-lg font-semibold text-md relative left-16"
+          >
             Industry-Leading Technology & Best Practices
           </p>
-          <p class="p-3 bg-white rounded-lg text-md">Contribute</p>
+          <p class="p-3 bg-white rounded-lg font-semibold text-md">
+            Contribute
+          </p>
         </div>
         <UButton
           label="Launch app"

@@ -17,8 +17,12 @@
       <li>Resources</li>
       <li>About us</li>
       <li>Feedback</li>
-      <li>Team</li>
-      <li>Trusted Vars</li>
+      <NuxtLink to="/team">
+        <li>Team</li>
+      </NuxtLink>
+      <NuxtLink to="/trusted">
+        <li>Trusted Vars</li>
+      </NuxtLink>
     </ul>
     <div class="flex w-[190px] gap-x-2 items-center">
       <div

@@ -2,7 +2,7 @@
   <div class="px-16 py-12">
     <h1 class="font-bold text-4xl">Blog</h1>
     <p class="font-thin text-xl py-3">Catch up with all that's happening</p>
-    <div class="border-y flex justify-between py-4">
+    <div class="border-y flex justify-between items-center py-4">
       <div class="w-[350px]">
         <UFormGroup>
           <UInput
@@ -18,7 +18,12 @@
           />
         </UFormGroup>
       </div>
-      <UButton label="Write an article" class="text-shield-black rounded-sm" />
+      <NuxtLink to="/blog/publish">
+        <UButton
+          label="Write an article"
+          class="text-shield-black rounded-sm py-3"
+        />
+      </NuxtLink>
     </div>
     <div class="mt-16 flex flex-col gap-y-16">
       <div>

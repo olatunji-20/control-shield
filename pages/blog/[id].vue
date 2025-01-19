@@ -28,7 +28,7 @@
       </UButton>
     </div>
     <div class="h-[400px] my-12 mx-auto">
-      <img
+      <NuxtImg
         src="/public/blog/ux-review.png"
         alt="bbb"
         class="rounded-xl object-fill size-[100%]"

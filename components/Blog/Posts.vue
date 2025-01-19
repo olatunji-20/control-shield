@@ -7,7 +7,7 @@
       :ui="{ strategy: 'override', shadow: 'none', body: 'p-0' }"
     >
       <NuxtLink :to="`/blog/${n}`">
-        <img
+        <NuxtImg
           src="/public/blog/blog-image.png"
           class="w-[100%] h-[160px] object-fill"
         />

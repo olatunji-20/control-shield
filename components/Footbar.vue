@@ -3,7 +3,7 @@
     <div class="pb-4 border-b flex flex-row justify-between">
       <div class="w-[20%] h-[150px]">
         <div class="w-[100%] h-[45px]">
-          <img
+          <NuxtImg
             src="/public/landing-img/control-shield-logo.png"
             alt="control-shield-logo"
           />

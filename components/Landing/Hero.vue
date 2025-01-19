@@ -32,7 +32,7 @@
         improvement and risk mitigation.
       </p>
       <div class="w-[175px] h-[90px] mb-6 mx-auto">
-        <img
+        <NuxtImg
           src="/public/landing-img/1898co.png"
           alt="1898co-logo"
           class="object-fill"

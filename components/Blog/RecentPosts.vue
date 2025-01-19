@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-2 grid-rows-2 gap-4">
     <div class="row-span-2">
-      <img
+      <NuxtImg
         src="/public/blog/article-image.png"
         :alt="recentPosts[0].topic"
         class="h-[210px] object-fill w-[100%]"
@@ -12,7 +12,7 @@
       </p>
     </div>
     <div class="flex flex-row justify-between">
-      <img
+      <NuxtImg
         src="/public/blog/article-image.png"
         class="h-[100%] w-[210px] object-fill"
         :alt="recentPosts[1].topic"
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="flex flex-row justify-between">
-      <img
+      <NuxtImg
         src="/public/blog/article-image.png"
         class="h-[100%] w-[210px] object-fill"
         :alt="recentPosts[2].topic"

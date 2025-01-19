@@ -2,7 +2,7 @@
   <div class="flex items-center justify-center">
     <div class="w-1/3 text-center">
       <div class="size-[150px] mx-auto my-4 rounded-full">
-        <img src="/public/auth-img/solid-check.png" class="object-cover" />
+        <NuxtImg src="/public/auth-img/solid-check.png" class="object-cover" />
       </div>
       <h1 class="font-bold text-2xl">Congratulations</h1>
       <p class="font-thin text-md mb-10">Your account has been verified.</p>

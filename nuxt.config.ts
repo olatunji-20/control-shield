@@ -4,7 +4,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
   ui: {
-    icons: ["material-symbols"]
+    icons: ['material-symbols']
   },
-  modules: ['@nuxt/ui']
+  modules: ['@nuxt/ui', '@nuxt/image'],
+  image: {
+    domains: ['www.google.com'],
+    provider: 'ipx'
+  }
 })

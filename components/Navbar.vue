@@ -2,7 +2,7 @@
   <div class="flex justify-between py-7 px-16 items-center">
     <NuxtLink to="/">
       <div class="w-[220px] h-[45px]">
-        <img
+        <NuxtImg
           src="/public/landing-img/control-shield-logo.png"
           alt="control-shield-logo"
           class="object-fill w-[100%] h-[100%]"

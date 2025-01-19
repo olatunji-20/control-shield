@@ -15,7 +15,7 @@
         class="bg-black rounded-none ring-0"
         :ui="{ strategy: 'override', shadow: 'none', body: 'p-0' }"
       >
-        <img
+        <NuxtImg
           src="/public/blog/blog-image.png"
           class="w-[100%] h-[260px] object-fill"
         />

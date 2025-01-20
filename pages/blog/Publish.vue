@@ -16,7 +16,7 @@
         <UButton label="Publish blog" class="ml-4 text-shield-black py-3" />
       </div>
     </div>
-    <div class="my-12 border-2 border-yellow-600 h-[500px]">
+    <div class="my-12 border-2 border-yellow-600 h-[500px] bg-shield-brown">
       <BlogEditor />
     </div>
   </div>

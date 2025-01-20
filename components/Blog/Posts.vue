@@ -8,7 +8,7 @@
     >
       <NuxtLink :to="`/blog/${n}`">
         <NuxtImg
-          src="/public/blog/blog-image.png"
+          src="/blog/blog-image.png"
           class="w-[100%] h-[160px] object-fill"
         />
         <p class="font-semibold text-xl py-3">

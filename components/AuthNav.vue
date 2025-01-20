@@ -3,7 +3,7 @@
     <NuxtLink to="/">
       <div class="w-[220px] h-[45px]">
         <NuxtImg
-          src="/public/landing-img/control-shield-logo.png"
+          src="/landing-img/control-shield-logo.png"
           alt="control-shield-logo"
           class="object-fill w-[100%] h-[100%]"
         />

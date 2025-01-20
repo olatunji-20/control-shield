@@ -16,7 +16,7 @@
         :ui="{ strategy: 'override', shadow: 'none', body: 'p-0' }"
       >
         <NuxtImg
-          src="/public/blog/blog-image.png"
+          src="/blog/blog-image.png"
           class="w-[100%] h-[260px] object-fill"
         />
         <p class="font-semibold text-xl">Clara Santos Rocha</p>

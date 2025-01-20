@@ -4,8 +4,9 @@
       <div class="w-[20%] h-[150px]">
         <div class="w-[100%] h-[45px]">
           <NuxtImg
-            src="/public/landing-img/control-shield-logo.png"
+            src="/landing-img/control-shield-logo.png"
             alt="control-shield-logo"
+            class="object-fill"
           />
         </div>
         <div class="size-[20px] rounded-full ml-2 my-4 border"></div>

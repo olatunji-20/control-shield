@@ -2,7 +2,7 @@
   <div class="grid grid-cols-2 grid-rows-2 gap-4">
     <div class="row-span-2">
       <NuxtImg
-        src="/public/blog/article-image.png"
+        src="/blog/article-image.png"
         :alt="recentPosts[0].topic"
         class="h-[210px] object-fill w-[100%]"
       />
@@ -13,7 +13,7 @@
     </div>
     <div class="flex flex-row justify-between">
       <NuxtImg
-        src="/public/blog/article-image.png"
+        src="/blog/article-image.png"
         class="h-[100%] w-[210px] object-fill"
         :alt="recentPosts[1].topic"
       />
@@ -24,7 +24,7 @@
     </div>
     <div class="flex flex-row justify-between">
       <NuxtImg
-        src="/public/blog/article-image.png"
+        src="/blog/article-image.png"
         class="h-[100%] w-[210px] object-fill"
         :alt="recentPosts[2].topic"
       />
@@ -40,21 +40,21 @@
 const recentPosts = ref([
   {
     id: 1,
-    imageUrl: "/public/blog/article-image.png",
+    imageUrl: "/blog/article-image.png",
     topic: "UX review presentation",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt sit accusamus et consectetur. Fugiat odit quis vero enim ex dolore!",
   },
   {
     id: 2,
-    imageUrl: "/public/blog/article-image.png",
+    imageUrl: "/blog/article-image.png",
     topic: "Migrating to linear 101",
     description:
       "Lorem ipsum dolor accusamus et consectetur. Fugiat odit quis vero enim ex dolore!",
   },
   {
     id: 3,
-    imageUrl: "/public/blog/article-image.png",
+    imageUrl: "/blog/article-image.png",
     topic: "Building your API Stack",
     description:
       "Lorem ipsum dolor sit amet consectetur aditetur. Fugiat odit quis vero enim ex dolore!",

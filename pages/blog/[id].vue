@@ -29,7 +29,7 @@
     </div>
     <div class="h-[400px] my-12 mx-auto">
       <NuxtImg
-        src="/public/blog/ux-review.png"
+        src="/blog/ux-review.png"
         alt="bbb"
         class="rounded-xl object-fill size-[100%]"
       />

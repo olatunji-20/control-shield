@@ -33,7 +33,7 @@
       </p>
       <div class="w-[175px] h-[90px] mb-6 mx-auto">
         <NuxtImg
-          src="/public/landing-img/1898co.png"
+          src="/landing-img/1898co.png"
           alt="1898co-logo"
           class="object-fill"
         />

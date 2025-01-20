@@ -6,7 +6,10 @@ export default defineNuxtConfig({
   ui: {
     icons: ['material-symbols']
   },
-  modules: ['@nuxt/ui', '@nuxt/image'],
+  modules: ['@nuxt/ui', '@nuxt/image', 'nuxt-tiptap-editor'],
+  tiptap: {
+    prefix: 'Tiptap', //prefix for Tiptap imports, composables not included
+  },
   image: {
     domains: ['www.google.com'],
     provider: 'ipx'

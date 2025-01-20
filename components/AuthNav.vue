@@ -10,7 +10,9 @@
       </div>
     </NuxtLink>
     <ul class="flex gap-x-4 font-thin">
-      <li>Shield</li>
+      <NuxtLink to="/shield">
+        <li>Shield</li>
+      </NuxtLink>
       <NuxtLink to="/iccs">
         <li>ICCS</li>
       </NuxtLink>

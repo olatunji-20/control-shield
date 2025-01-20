@@ -24,10 +24,13 @@
       </div>
     </div>
     <div class="py-4">
-      <NuxtLink to="/blog/publish">
-        <UButton label="Add blog" class="text-shield-black rounded-sm py-3" />
-      </NuxtLink>
-      <div class="border border-red-400">
+      <div class="relative">
+        <NuxtLink to="/blog/publish">
+          <UButton
+            label="Add blog"
+            class="text-shield-black absolute right-0 top-2 rounded-md py-3"
+          />
+        </NuxtLink>
         <UTabs
           :items="tabs"
           :ui="{
@@ -35,7 +38,7 @@
             list: {
               width: 'w-[500px]',
               height: 'h-16',
-              background: 'bg-shield-black',
+              background: 'bg-shield-blac',
               padding: 'p-0',
               rounded: 'rounded-none',
               tab: {

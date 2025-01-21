@@ -400,6 +400,539 @@ export const iccsData = [
         maturity: "Member"
     },
     {
+        id: 6,
+        nist: ["Protect"],
+        cis: {
+            header: "Continous Vulnerability Management",
+            body: "Develop a plan to continuously assess and track vulnerabilities, in order to remediate and minimize the window of opportunity for attackers. Monitor public and private industry sources for new threats and vulnerability information."
+        },
+        ot: [
+        {
+            id: 1,
+            header: "Vulnerability Management",
+            paid: ["Cisco Cybervision", "Claroty CTD / Edge", "Dragos", "Forescout", "Industrial Defender", "Mission Secure", "Nozomi Guardian / Smart Polling", "PAS", "Rumble", "SCADAFence", "SecurityGate.io", "Tenable.ot", "Tenable Nessus Expert", "Tenable Nessus Professional", "Tripwire Industrial Visibility"],
+            free: ["OpenVAS", "Tenable Nessus Essentials"]
+        },
+        {
+            id: 2,
+            header: "External Attack Surface Management(EASM)",
+            paid: ["Falcon Surface", "Halo Security", "Recorded Future"],
+            free: ["Shodan"]
+        }
+    ],
+        practices: `<!DOCTYPE html><html><body>
+        <p>Chasing vulnerabilities in OT is a cat chasing its tail. Much like a cat's tail, vulnerabilities in OT systems endlessly appear and disappear, making it a perpetual pursuit. Patching the vulnerabilities is oftentimes very hard as it needs to be done during site downtime and/or sometimes voids vendor warranties or support contracts because it could compromise the system's availability. This counterproductive outcome stands in direct contrast to the overarching goal of safeguarding the system against potential hackers and ensuring its continued availability.</p>
+        <p>Instead of chasing CVEs, organizations should start by identifying real OT cyber risk by following cyber risk processes such as the ISA 62443 3-2 standard or the INLs CCE process. Some questions organizations should ask before bothering with a CVE-based vulnerability management solution:</p>
+        <ul>
+        <li>Are your safety systems connected to the process DCS?</li>
+        <li>Is remote access controlled?</li>
+        <li>Is there a CSMS or cyber program in place to manage the OT environment?</li>
+        <li>Has basic hardening been implemented?</li>
+        <li>Has an architecture review been conducted that includes a 3rd party review of the firewall rules?</li>
+        <li>Is my IT/OT segmented with a DMZ for systems that need to talk between these zones?</li>
+        <li>Etc…</li>
+        </ul>
+        <p>Addressing the above is addressing real OT cyber vulnerabilities. Chasing CVE's is oftentimes a lost cause and for small to medium organizations, a waste of time and resources.</p>
+        <p>For more mature organizations, vulnerability management solutions have their place.</p>
+        <p><strong>Develop vulnerability management policies/procedures that include some of the following:</strong></p>
+        <ol>
+        <li>What solution will be used to conduct vulnerability scanning</li>
+        <li>What systems/applications will be scanned</li>
+        <li>How often will the scanning occur</li>
+        <li>Who will do the scanning</li>
+        <li>Can the scanning be automated</li>
+        <li>Do regulations applicable to the organization require vulnerability scanning</li>
+        <li>Upon analyzing the results how do we organize, prioritize, and remediate detected vulnerabilities</li>
+        </ol>
+        <p><strong>So what does Vulnerability Management look like?</strong></p>
+        <ol>
+        <li>Start with knowing your assets / resources. Typically a monthly scan makes sense.</li>
+        <li>Start addressing the top risk assets. This isn't necessarily aligned to which asset has the highest CVSS score, but what assets present the most risk to the organization. Furthermore, even once you narrow these assets down, still don't just look at the CVSS score. Determine which exploits or CVEs are actually "weaponized" or exploitable. You can use something like CISA's known vulnerability list. Tools like Qualys provide this as a widget.</li>
+        <li>Discuss with the asset owner on what vulnerabilities can be mitigated.</li>
+        <li>Something either gets done or it doesn't. Negotiate and plan to mitigate over a maintenance period.</li>
+        <li>Repeat</li>
+        </ol>
+        <p><strong>External Attack Surface Management (EASM) vs Vulnerability Scanning</strong></p>
+        <p>Vulnerability Scanner: Find vulnerabilities based on a set of IP addresses that the user provides.</p>
+        <p>External Attack Surface Management (EASM): Discover and analyze internet-facing IT assets and risks without needing much input or values. EASM solutions incorporate features such as dark web password leaks, an inventory of internet-facing devices, or other exposed sensitive data.</p>
+        <p>A EASM tool is a great addition to vulnerability management as these tools discover external attack surfaces. All potential digital doorways into an enterprise, which includes, third-party suppliers, partners, cloud services, work from home setups, and more.</p>
+        <p>Vulnerability Prioritization Technology</p>
+        <p>To caveat, VPT solutions should not be used until the basic vulnerability management processes are in place. VPT solutions are typically leveraged by organizations that are higher in vulnerability management maturity. Furthermore, these platforms are still largely immature and are 2-5 years away from mainstream adoption.</p>
+        <p>All the network monitoring and defense tools mentioned in the Network Defense and Asset Inventory CIS controls will prioritize vulnerabilities primarily on CVSS scoring. The problem with CVSS scoring is that it still lacks context. It doesn't rank risk; it ranks severity. CVSS version 3 worked to add context into the scoring from version 2; however, risk scoring is still missing.</p>
+        <ol>
+        <li>The importance of the asset the organization is trying to protect</li>
+        <li>Does the asset hold any sensitive information</li>
+        <li>Is this a vulnerability or real risk? How is this risk weighed</li>
+        <li>Are these exploits weaponized and actively used to target</li>
+        </ol>
+        <p><strong>Selection Guidance</strong></p>
+        <ul>
+        <li>Implement a risk-based approach that correlates asset value to calculate a risk rating leveraging VPT solutions. This reduces the risk of being breached when prioritizing remediation activities.</li>
+        <li>Augment VA tools with stand-alone VPT solutions for better prioritization or use existing VPT capabilities that assist with the effective methodology for real risk reduction. This enables vendor consolidation and places less effort on new training and tool deployment.</li>
+        <li>Identify vendors with patching capabilities and SOAR integrations. This puts the security team in control of workflows. Evaluate if this approach is appropriate. If so, leverage remediation workflow automation and avoid using two different tools.</li>
+        <li>Deploy VPT solutions that use the context of internal security controls to maximize existing security investments. This capability is immature across the market.</li>
+        <li>Choose VPT solutions that aggregate vulnerability data from multiple sources to present action-oriented metrics.</li>
+        </ul>
+        <p><strong>For Additional Guidance:</strong></p>
+        <p><u>NIST 800-40v2 “Creating a Patch and Vulnerability Management Program.”</u></p>
+        </body></html>
+        `,
+        maturity: "Member"
+    },
+    {
+        id: 7,
+        nist: ["Detect"],
+        cis: {
+            header: "Audit Log Management",
+            body: "Collect, alert, review, and retain audit logs of events that could help detect, understand, or recover from an attack."
+        },
+        ot: [
+        {
+            id: 1,
+            header: "SIEM Platforms",
+            paid: ["Exabeam Fusion SIEM", "Graylog", "IBM QRadar", "Rapid7 InsightIDR", "Securonix", "Splunk"],
+            free: ["ELK Stack", "Security Onion", "Wazuh"]
+        }
+    ],
+        practices: `<!DOCTYPE html><html><body>
+        <p><strong>Develop logging requirements, policies, and procedures.</strong></p>
+        <ol>
+        <li>What systems are capable of logging and how is this configured</li>
+        <li>Where will the syslog/SIEM server sit in the environment</li>
+        <li>Who or how do we review the logs</li>
+        <li>How long will we retain audit logs</li>
+        <li>Are there regulations that require a certain retaining period</li>
+        </ol>
+        <p><strong>Systems and Log Types</strong></p>
+        <ul>
+        <li>Windows: Event Logs, SNMP</li>
+        <li>Linux: Syslog, SNMP</li>
+        <li>Network Appliances: Syslog, Netflow, SNMP</li>
+        <li>ICS Systems: Syslog, SNMP</li>
+        </ul>
+        <p>Windows Event Log Event ID Mapping to MITRE ATT&CK Framework</p>
+        <p><u>Windows Event Log ATT&CK Framework Mapping</u></p>
+        <p>Network Appliances Cisco Logging Starting Point</p>
+        <p>Cisco Logging Best Practices</p>
+        <p>Logs should be sent from all capable devices to a centralized Syslog server / SIEM. This includes Windows, Linux, network appliances, HMIs, and PLCs. The SIEM should be able to easily display the logs and alerts generated in a customizable UI (user interface). The ability to send alert notifications and generate reports should exist. Logs should be periodically reviewed, if not monitored 24/7 by the organization or 3rd party SOC depending on requirements, budget, and risk.</p>
+        <p><strong>In summary:</strong></p>
+        <p>You want to send logs from every machine that has the capability over to a SIEM. You want these logs to be reviewed by someone who is trained and knows what to look for.</p>
+        <p>Logging serves two purposes:</p>
+        <ol>
+        <li>Helps after an attack</li>
+            <ul>
+            <li>If you have central logging, but no one looks at the logs at least you still have logs that can help paint a picture or speed up the incident response process.</li>
+            </ul>
+
+        <li>Helps to prevent an attack</li>
+            <ul>
+            <li>If you have someone reviewing the logs that is trained, they may be able to spot an attack before it wreaks havoc in your environment.</li>
+            </ul>
+        </ol>
+
+        <p><strong>For Additional Guidance:</strong></p>
+        <p><u>NIST 800-92 “Guide to Computer Security Log Management.”</u></p>
+        </body></html>
+        `,
+        maturity: "Member"
+    },
+    {
+        id: 8,
+        nist: ["Protect"],
+        cis: {
+            header: "Email and Web Browser Protections",
+            body: "Improve protections and detections of threats from email and web vectors, as these are opportunities for attackers to manipulate human behavior through direct engagement."
+        },
+        ot: [
+        {
+            id: 1,
+            header: "Email Protection:",
+            paid: ["Avanan", "Cisco ESA", "Mimecast Secure Email Gateway", "Proofpoint Email Protection Suite"],
+            free: []
+        },
+        {
+            id: 2,
+            header: "Web Protection:",
+            paid: ["Broadcom", "Cisco WSA", "Zscaler"],
+            free: []
+        }
+    ],
+        practices: `<!DOCTYPE html><html><body>
+        <p>Email and Web security are typically things that OT don't have to focus on, however, it is a critical control, so we'll cover it.</p>
+        <p>Firstly, if your OT environment doesn't need email or web (they often don't), verify that no email or web traffic traverses your OT environment. You can verify this by running a packet capture at various places in your network. You can also verify this if you're logging at the network gateway level, which is typically done by a firewall. Second, remove any email or web applications that would be used to interface with these protocols. If you're not using the protocols, remove the applications that interact with them. This reduces your attack surface.</p>
+        <p>Some Overall Best Practices without Procuring any Tooling:</p>
+        <ol>
+        <li>Allow-listing only fully supported browsers and email clients</li>
+            <ul>
+            <li>Most often Chrome or Edge</li>
+            </ul>
+        <li>Keep the browsers and email clients up-to-date</li>
+        <li>Restrict Unnecessary or unauthorized browser and email client extensions</li>
+            <ul>
+            <li>This can be pushed in GPO's (Group Policy Objects) by Active Directory.</li>
+            </ul>
+        <li>Ensure cybersecurity training covers email/web best practices and acceptable use</li>
+        </ol>
+        <p>After policies and procedures are created look to implement an Email and Web security tool.</p>
+        <p><strong>Email Protection:</strong></p>
+        <p>Most of these solutions do the same thing and have very similar performance. Select the tool that is easiest to manage and integrates well with your other tooling.</p>
+
+        <img src="\blog\article-image.png" alt="iccs" />
+
+        <p>Above is Cisco's ESA (Email Security Appliance). The graphic shows how the incoming mail policy provides the inbound security controls for incoming email processing. You can see the different layers of security control before the email is ultimately received.</p>
+        <p><strong>Anti-Spoofing</strong></p>
+        <p>3 Main Types of Email Spoofing:</p>
+        <ol>
+        <li>Envelope From Spoofing</li>
+        <li>Header From Spoofing</li>
+        <li>Display Name Spoofing</li>
+        </ol>
+        <p><strong>3 Main Email Spoofing Solutions:</strong></p>
+        <ol>
+        <li>Sender Policy Framework (SPF) - RFC 7208</li>
+        <li>DomainKeys Identified Mail (DKIM) - RFC 6376</li>
+        <li>Domain Message Authentication Reporting & Conformance (DMARC) - RFC 7489</li>
+        </ol>
+
+        <p><strong>Email Spoofing Mitigation</strong></p>
+        <ol>
+        <li>Envelope from spoofing: SPF</li>
+        <li>Header from spoofing: SPF + DMARC + DKIN</li>
+        <li>Display name spoofing: Advanced threat filter, transport rules, and user training</li>
+        <li>Compromised mailboxes or “legitimate” senders: Advanced threat filters, transport rules, and user training</li>
+        </ol>
+
+        <p><strong>Web:</strong></p>
+        <p>Refer to some of the best practices listed at the beginning of this section. A web security appliance such as the ones listed might be overkill for many organizations.</p>
+        <p>Other than what’s listed previously, consider an ad blocker such as Ublock Origin. This can be implemented through GPOs and limit the adware.</p>
+
+        </body></html>
+        `,
+        maturity: "Member"
+    },
+    {
+        id: 9,
+        nist: ["Protect"],
+        cis: {
+            header: "Malware Defenses",
+            body: "Prevent or control the installation, spread, and execution of malicious applications, code, or scripts on information systems."
+        },
+        ot: [
+        {
+            id: 1,
+            header: "EDR (Endpoint Detection and Response) Solutions:",
+            paid: ["alcon CrowdStrike", "Malwarebytes EDR", "Singularity Platform SentinelOne", "Trend Micro XDR - Trend Micro"],
+            free: ["Windows Defender", "Malwarebytes Personal"]
+        },
+        {
+            id: 2,
+            header: "Anti-Exploitation:",
+            paid: ["EDR (Endpoint Detection and Response) Solutions"],
+            free: ["Windows Defender Exploit Guard (WDEG)"]
+        },
+        {
+            id: 3,
+            header: "Removable Media Anti-Malware:",
+            paid: [],
+            free: []
+        },
+        {
+            id: 4,
+            header: "Scanning Tools",
+            paid: [],
+            free: []
+        },
+        {
+            id: 5,
+            header: "High Grade: OPSWAT",
+            paid: [],
+            free: []
+        },
+        {
+            id: 6,
+            header: "MetaDefender Kiosk",
+            paid: [],
+            free: []
+        },
+        {
+            id: 7,
+            header: "Most host anti-virus solutions can equally scan USB devices.",
+            paid: [],
+            free: []
+        },
+        {
+            id: 8,
+            header: "Network Anti-Malware",
+            paid: [],
+            free: []
+        },
+        {
+            id: 9,
+            header: "All current next-gen firewalls offer on-the-wire anti-virus.",
+            paid: [],
+            free: ["FortiGate", "Palo Alto", "Cisco FTD", "Etc."]
+        },
+        {
+            id: 10,
+            header: "Transient Device Anti-Malware Scanning Tools",
+            paid: [],
+            free: ["Portable security 3", "TXOne Portable Inspector"]
+        }
+    ],
+        practices: `<!DOCTYPE html><html><body>
+        <p>Data recovery has become a paramount concern for organizations. While the focus used to be primarily on preventing cyberattacks, there has been a recent shift in mindset. This shift is driven by the escalating frequency of attacks, particularly in critical infrastructure sectors that have historically lagged behind in robust cybersecurity measures. Now, organizations are advised to allocate significant attention to developing strategies for mitigating and remediating the consequences of cyber breaches. The emphasis is on being prepared for the eventuality of a successful hack.</p>
+        <p>Key to the mitigation and remediation strategy revolves around data recovery.</p>
+
+        <p><strong>Consider the 3-2-1 Methodology:</strong></p>
+        <ul>
+        <li>Three: Keep three copies of data, the original data copy, and at least two backups</li>
+        <li>Two: Use two different storage types. For instance, if data is stored on an internal hard drive, use a secondary device such as an external drive or cloud source</li>
+        <li>One: Keep one copy of data offsite</li>
+        </ul>
+
+        <p><strong>Organizations should develop a data recovery process that covers the following:</strong></p>
+        <ol>
+        <li>What systems/applications should be backed up (risk prioritize assets)</li>
+        <li>Where will these backups be stored (if stored online or on the network, the storage should be properly segmented)</li>
+        <li>How often will the backups occur</li>
+        <li>Will we automate the backups</li>
+        <li>How long will we keep the backups based upon regulation or storage capacity</li>
+        <li>Who has access to the backups</li>
+        <li>What backups will we encrypt</li>
+        <li>In the event of a cyber attack, is operations aware of how to recover from the backups</li>
+        </ol>
+
+        <p><strong>Ensure you are not just backing up your Windows operator stations, engineer stations, or data historians, but also your network equipment, project files, and other ICS configurations. Project Files - PLCs/HMIs:</strong></p>
+        <ul>
+        <li>Low Maturity or small environment: Run a backup and store this logically (NAS, SharePoint, Fileserver) and physically (hard drive in fireproof safe as an example). Update backups minimally every time configuration changes occur. Put a date in the folder/file name to at least tell you when the configuration was taken.</li>
+        <li>For Higher Maturity or large environments with multiple engineers making configuration changes: Tools such as Version Dog or Copia can be used to pull configurations and for configuration change management. With Copia, DeviceLink used to pull configurations into its dashboard using an agent installed onto a PC at the site. Copia is Git-based version control. Under the dashboard, users can review the code and work together to make changes and keep track of versions.</li>
+        </ul>
+  
+        </body></html>
+        `,
+        maturity: "Member"
+    },
+    {
+        id: 10,
+        nist: ["Protect"],
+        cis: {
+            header: "Network Infrastructure Management",
+            body: "Establish, implement, and actively manage (track, report, correct) network devices, in order to prevent attackers from exploiting vulnerable network services and access points."
+        },
+        ot: [
+        {
+            id: 1,
+            header: "Network Diagrams",
+            paid: [],
+            free: ["Draw.io", "Microsoft Visio"]
+        },
+        {
+            id: 2,
+            header: "Network Management Sofware",
+            paid: ["Nikmo", "Ansible", "Unimus", "Rancid", "PRTG (free up to 100 end devices)", "Cacti", "Siemens SINEC", "Rockwell FactoryTalk"],
+            free: ["WindowLibreNMS", "Rancid", "Oxidized"]
+        },
+        {
+            id: 3,
+            header: "AAA",
+            paid: ["Microsoft NPS Server (Radius)", "Cisco ISE (TACACS+)", "Aruba Clearpass (TACACS+)"],
+            free: []
+        }
+    ],
+        practices: `<!DOCTYPE html><html><body>
+        <p>Network Infrastructure management in the scope of CIS covers a lot. Within this critical control, safeguards are mentioned for building a secure architecture, ensuring network appliances are up-to-date, and implementing network hardening, including secure authentication to appliances.</p>
+        <p>Outside of the network management software, many of the CIS “Safeguards” listed to meet this control are procedures and tasks the asset owner needs to perform to ensure the proper and secure management of their infrastructure. So, in tooling, I'll recommend some NMS tools and provide guidance here, but other than those tools, other Safeguards mentioned such as maintaining network diagrams, ensuring infrastructure is up to date, securing managing network infrastructure isn't simply a tool, but more administrator tasks that need to be continuously performed.</p>
+        <p>Unlike IT, where defense in depth travels all the way to the end device, in OT, many end devices either aren't capable or aren't able to have the same security controls due to operational constraints. This means the network architecture, security, segmentation, least privilege, and availability, at minimum is paramount to providing comprehensive security posture.</p>
+        <p>Richard Bejtlich, strategist at Corelight, former senior director at Splunk, and former Chief Security Strategist at FireEye introduced the term defensible network architecture over 10 years ago.</p>
+        <p>The principals are the following:</p>
+        <ol>
+        <li>Monitored</li>
+        <li>Inventoried</li>
+        <li>Controlled</li>
+        <li>Claimed</li>
+        <li>Minimized</li>
+        <li>Assessed</li>
+        <li>Current</li>
+        </ol>
+        <p>You can read more about these here.</p>
+        <p>Secure Network Architecture Design</p>
+        <p>Cisco has a repository of reference architecture of the OT space. <a>https://www.cisco.com/c/en/us/solutions/design-zone/industries/manufacturing.html</a></p>
+
+
+        <img src="/public/blog/blog-image.png" alt="" />
+
+
+        <p>When building a secure architecture, critical infrastructure organizations should reference the following documents.</p>
+        <ol>
+        <li>NIST 800-82 version 2</li>
+        <li>On page 5-8 through 5-12 you’ll see the 4 architectures mentioned, with 5-12 being the most mature.</li>
+            <ul>
+            <li>Compare and contrast your organization's architecture to these 4 architectures to get a baseline of where you're at and see where improvements can be made. They also have listed great best practices that include technical and procedural controls aligned to these architectures.</li>
+            <li>Like-devices or devices with similar security requirements should have their own VLAN. Those VLANS should then have a gateway on the firewall so that if those VLANs need to reach out to another network or talk to another VLAN, they are forced to talk through the firewall where rules should be present that enforce that communication.</li>
+            </ul>
+        </ol>
+        <p>Network STIGs</p>
+        <p>Look at network STIGs. 30% of the findings have to do with network design. Something that is HARD to tack on after the fact. Designing security and reliability into networks before they are built and commissioned is so crucial. This is partially why the term "security needs to be design from the start" exists. It is much harder to bolt on security. Easier to design it secure from the start.</p>
+        <p>Other common controls listed in network STIGs revolve around other common hardening practices such as using secure protocols, removal of services that aren’t used, backups, VLAN best practices, and access control such as secure authentication. This is covered in more depth in the "Secure Configuration of Enterprise Assets and Software" CIS Control.</p>
+        <p>Purdue Model</p>
+        <p>Take your current OT network architecture and align it to the Purdue model. This will standardize your architecture, make it much easier to digest when looking at IT/OT segmentation, entry points, access control, etc.</p>
+        <p>Network Hardening</p>
+        <p>Quick and Dirty network hardening guide from the NSA</p>
+        <ol>
+        <li>Search “Network Infrastructure Security Guide June 2022”</li>
+            <ul>
+            <li>This pretty solid quick and dirty “Here’s how to secure networks” technical whitepaper.</li>
+            </ul>
+        </ol>
+        <p>Holistic approach</p>
+        <ol>
+        <li>CIS benchmark</li>
+        <li>DoD STIG</li>
+        </ol>
+        <p>Network Management Software</p>
+        <p>Network Management Software has the following functions.</p>
+        <ul>
+        <li>Network Discovery</li>
+        <li>Real-Time Monitoring</li>
+        <li>Network Reporting and Dashboard</li>
+        <li>Network Performance</li>
+        <li>Configuration Management</li>
+        <li>Network Automation</li>
+        <li>Alerts, Reports, and Notifications</li>
+        </ul>
+        <p>These solutions use a combination of protocols to meet these features. SNMP, Netflow, SOAP, WMI, etc. Sadly, there isn't one product that does all of these features listed. Standard NMS solutions usually meet all features except network configuration management and automation. You'll have to procure a different tool to meet these if that's a requirement. LibreNMS is a popular free choice, while PRTG in combination with Cacti is a popular paid approach.</p>
+        <p>When it comes to configuration management and automation Nikmo, Ansible, and Unimus are popular solutions.</p>
+        <p>When it comes to secure authentication to network appliances the AAA (authentication, authorization, accounting) model is used Radius or TACACS+</p>
+        <p>AAA is used for wireless authentication and authorization of users connecting to Wi-Fi, remote access, and network device authentication.</p>
+        <p>With AAA, you can centrally configure and manage user accounts from a single authentication server. This allows users to log into multiple switches, routers, or firewalls without the need to set up and manage their accounts separately on each network appliance. In essence, it streamlines user management by providing a centralized point of control, making it more efficient and less cumbersome to handle user access across multiple devices.</p>
+        <p>Radius and TACACS+ are the primary protocols used. Very simply, Radius is controlled access into the network. TACACS+ is controlled access to a network device. Radius is an open-source protocol, while TACACS+ is a Cisco proprietary protocol, although now many other devices support TACACS+. Radius encrypts just the password (unless you're using RadSec), while TACACS+ encrypts the whole packet. Finally, when you configure TACACS+ you can configure user authorization, what permissions they have and accounting what logging with be configured. Using Radius, you must configure authorization on the end device rather than assign the permissions per user. So, while Radius has more use cases and is vendor agnostic, there are two weaknesses. Per user authorization is not built in, and lack of logging per user. The good thing is these can be mitigated. Using Cisco as an example, we can configure syslog to log commands that users run using log config and then thePer-user logging enable command. Additionally, we can use the privilege command we can limit what users do on the network compliance.</p>
+        <p>More information about setting permissions and accounting with radius can be found <u>here</u>.</p>
+        <p>Network diagrams should be continuously maintained and securely stored by encrypting the files and/or limited where they are stored. Hackers look for these documents during attacks to greatly increase their knowledge of the environment and how systems are connected.</p>
+        </body></html>
+        `,
+        maturity: "Member"
+    },
+    {
+        id: 11,
+        nist: ["Detect","Protect"],
+        cis: {
+            header: "Network Monitoring and Defence",
+            body: "Operate processes and tooling to establish and maintain comprehensive network monitoring and defense against security threats across the enterprise’s network infrastructure and user base."
+        },
+        ot: [
+        {
+            id: 1,
+            header: "Data Diode",
+            paid: [],
+            free: ["Waterfall Security", "Fend Incorporated", "Owl Data Diodes"]
+        },
+        {
+            id: 2,
+            header: "Nextgen Firewall",
+            paid: ["Cisco Firepower", "FortiGate", "Palo Alto", "CheckPoint", "Tofino", "Hirschmann", "Moxa", "Belden"],
+            free: ["PfSense", "Linux IP Tables"]
+        },
+        {
+            id: 3,
+            header: "IPS/IDS",
+            paid: ["All Nextgen firewalls offer in-line IPS. All tools mentioned on the first CIS Control (Inventory) are OT IDS solutions.", "Omicron (substation IDS)"],
+            free: ["Snort", "Security Onion", "Zeek"]
+        }
+    ],
+        practices: `<!DOCTYPE html><html><body>
+        <p><strong>Personnel Cybersecurity Training</strong></p>
+        <p>Personnel cybersecurity training isn't just phishing training. Building a comprehensive security awareness program includes minimally the following:</p>
+        <ul>
+        <li>Personnel are trained to recognize social engineering attacks</li>
+        <li>On data handling best practices</li>
+        <li>On authentication best practices</li>
+        <li>On causes of unintentional data exposure</li>
+        <li>On recognizing and reporting security incidents</li>
+        <li>Identify and report if their enterprise assets are missing security updates</li>
+        <li>Dangers of connecting to and transmitting enterprise data over insecure networks</li>
+        <li>USB best practices</li>
+        <li>Constantly and are tested on their knowledge of cybersecurity concepts</li>
+        </ul>
+
+        <p><strong>Phishing:</strong></p>
+        <p>Phishing training is pretty straight forward. Through one of the solution providers, quiz and test your users to ensure they are continuously training to spot phishing attempts.</p>
+        <ul>
+        <li>Phishing training needs to not only include video based training, but also quizzes and simulation-based testing, sending test phishing emails to employees.</li>
+        <li>Phishing testing on employees should occur monthly.</li>
+        <li>Consider consequences for those that continually fail.</li>
+        </ul>
+
+        <p><strong>General and Role-Based Training:</strong></p>
+        <p>General and role-based training should go hand in hand with cyber roles and responsibilities and align with other policies and procedures, such as incident response plans. Every personnel member should minimally contribute to preventing cyberattacks through the use of email, web, USB, and job-specific cyber best practices. However, employees also need to be proactive and able to understand how to spot a cyberattack when they encounter one, knowing how to escalate quickly and effectively.</p>
+        
+        <p><strong>Training your Cyber team:</strong></p>
+        <p>Often missed throughout the “cybersecurity lifecycle” is training your cybersecurity team. While they may be experts in certain niches of IT or cyber you must make sure they’re trained in the tool they’re using on a day to day or new tools around the corner. Misconfiguration and mismanagement of systems is one of the biggest causes of hacks. Not a zero-day or Stuxnet scenario but simply a misconfigured firewall. Or a legacy VPN account. This everyday gap in responsibility, training, or procedures causes most of the hacks today. Pay extra attention to this.</p>
+
+        <p>One method is to create a RACI matrix for your team. This breaks down who is responsible, accountable, consulted, and informed about various cybersecurity functions whether that is vulnerability scanning, updating x policy, etc.</p>
+
+        <p><strong>For Additional Guidance:</strong></p>
+        <p>NIST 800-50 Building an Information Technology Security Awareness and Training Program</p>
+
+        </body></html>
+        `,
+        maturity: "Member"
+    },
+    {
+        id: 12,
+        nist: ["Protect"],
+        cis: {
+            header: "Service Provider Management",
+            body: "Develop a process to evaluate service providers who hold sensitive data or are responsible for an enterprise's critical IT platforms or processes to ensure these providers are protecting those platforms and data appropriately."
+        },
+        ot: [
+        {
+            id: 1,
+            header: "Vendor Risk Management Solution",
+            paid: ["Bitsight", "OneTrust", "SecurityScorecard", "UpGuard", "Venminder"],
+            free: ["ISASecure", "DODIN", "Common Criteria", "ISO 27001", "SOC 2", "NIST 800-53"]
+        }
+    ],
+        practices: `<!DOCTYPE html><html><body>
+        <p>3rd party management is essential and often overlooked even in larger organizations. Ever increasingly 3rd party breaches are significantly impacting organizations.</p>
+        <p><strong>3rd Party Management Policy Establish and Maintain a Service Provider Management Policy that includes:</strong></p>
+        <ol>
+        <li>Identification of 3rd parties</li>
+        <li>Data classification and volume</li>
+        <li>Availability requirements</li>
+        <li>Cybersecurity requirements</li>
+        <li>Applicable regulations</li>
+        <li>Inherent risk vs mitigated risk</li>
+        </ol>
+
+        <p><strong>3rd Party Management</strong></p>
+        <ol>
+        <li>First, as always, risk assess any 3rd party access to identify if it's needed. Can you reduce the risk all together by getting rid of the access? Is it critical or needed? I.E. can the vendor come on-site instead?</li>
+        <li>Draft your policies/standards for 3rd party access/management</li>
+        <li>Create a list of questions for your vendors based on that.</li>
+        <li>Include additional assurance controls such as background checks, SOC 2, ISA27001.</li>
+        <li>Have a side channel with legal for reviewing security terms in contracts.</li>
+        </ol>
+
+        <p>Organizations should identify which 3rd parties have connections to it. The purpose of the connection should be understood to determine if the connection could be eliminated all together or limited. Requirements around the connection should be established to meet regulation and limit risk. Finally, a risk assessment should be conducted to further identify security gaps and mitigations to reduce the risk.</p>
+        <p>To continue, when you're planning to use or work with a 3rd party outside of SOC 2 of other compliance-based analysis, organizations need to have their list of cyber requirements. This could be in the form of a questionnaire. Three rules when building this out. 1) Don't ask questions that are so fundamental; if they didn't have it, they wouldn't be in business. I.E 3rd party organization must have a firewall. 2) Don't ask questions that are already in the contract 3) Don't ask questions they're likely not to answer truthfully anyway. I.E. do you 3rd party have current & up-to-date data flows? Almost nobody does.</p>
+        <p>Secure Standards When Procuring Equipment or Considering Integration</p>
+        <p>You can use the following standards when procuring equipment to ensure that the vendor meets certain development and organizational cybersecurity standards. Of course, this isn't foolproof, but it's all about doing due diligence.</p>
+        <ul>
+        <li>ISASecure</li>
+        <li>DODin</li>
+        <li>Common Criteria</li>
+        </ul>
+
+        <p>Additionally, you should ask the vendor you’re buying ICS/IT equipment/software from or considering 3rd party management/integration to map their requirements to 800-53 or ask if they have a SOC 2 or ISO 27001 compliance report. This allows you to understand better the cyber capabilities of the system, software, and company you're purchasing from.</p>
+
+        <p><strong>Additional Guidance:</strong></p>
+        <p><u>NIST 800-53 (SCRM requirements) CISA Risk Considerations for Managed Service Provider Customers</u></p>
+        
+        </body></html>
+        `,
+        maturity: "Member"
+    },
+    {
         id: 1000,
         nist: ["Protect", "Respond", "Recover", "Govern", "Detect"],
         cis: {

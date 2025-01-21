@@ -1,8 +1,8 @@
 <template>
   <div class="h-[250px] overflow-y-scroll">
-    <div v-for="t in row.ot" :key="t.id">
+    <div v-for="t in row.ot" :key="t.id" class="mb-6">
       <div>
-        <h3 class="font-bold text-lg text-wrap mt-6">
+        <h3 class="font-bold text-lg text-wrap">
           {{ t.header }}
         </h3>
         <p v-if="t.paid" class="font-bold leading-8">Paid</p>

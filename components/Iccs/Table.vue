@@ -9,15 +9,15 @@
             :label="n"
             class="text-center"
             :class="
-              n === 'identify'
+              n === 'Identify'
                 ? 'bg-blue-500'
-                : n === 'protect'
+                : n === 'Protect'
                 ? 'bg-red-500'
-                : n === 'detect'
+                : n === 'Detect'
                 ? 'bg-green-500'
-                : n === 'respond'
+                : n === 'Respond'
                 ? 'bg-yellow-500'
-                : n === 'recover'
+                : n === 'Recover'
                 ? 'bg-purple-500'
                 : 'bg-purple-200'
             "

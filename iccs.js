@@ -250,7 +250,7 @@ export const iccsData = [
         <p><strong>For Additional Guidance:</strong></p>
         <ol>
         <li>NIST 800-128 Guide for Security-Focused Configuration Management of Information Systems</li>
-        <li>NSA Network Infrastructure Security Guide June 2022: https://media.defense.gov/2022/Jun/15/2003018261/-1/-1/0/CTR_NSA_NETWORK_INFRASTRUCTURE_SECURITY_GUIDE_20220615.PDF</p></li>
+        <li>NSA Network Infrastructure Security Guide June 2022: https://media.defense.gov/2022/Jun/15/2003018261/-1/-1/0/CTR_NSA_NETWORK_INFRASTRUCTURE_SECURITY_GUIDE_20220615.PDF</li>
         </ol>
 
 
@@ -276,7 +276,7 @@ export const iccsData = [
             id: 2,
             header: "Authentication / Account Management",
             paid: ["Windows", "Active Directory", "Azure Active Directory", "Linux", "Active Directory", "FreeIPA", "HMI/PLC", "Active Directory (for supported HMIs)", "Rockwell FactoryTalk Security", "Siemens TIA Portal"],
-            free: ["There are other vendor-specific products (Industrial Automation Software) to configure security, including account management. Here Rockwell and Siemens are highlighted given they are market share leaders for Industrial Automation."]
+            // free: ["There are other vendor-specific products (Industrial Automation Software) to configure security, including account management. Here Rockwell and Siemens are highlighted given they are market share leaders for Industrial Automation."]
             }
     ],
         practices: `<!DOCTYPE html><html><body>
@@ -835,7 +835,7 @@ export const iccsData = [
         {
             id: 3,
             header: "IPS/IDS",
-            paid: ["All Nextgen firewalls offer in-line IPS. All tools mentioned on the first CIS Control (Inventory) are OT IDS solutions.", "Omicron (substation IDS)"],
+            // paid: ["All Nextgen firewalls offer in-line IPS. All tools mentioned on the first CIS Control (Inventory) are OT IDS solutions.", "Omicron (substation IDS)"],
             free: ["Snort", "Security Onion", "Zeek"]
         }
     ],
@@ -933,66 +933,865 @@ export const iccsData = [
         maturity: "Member"
     },
     {
-        id: 1000,
-        nist: ["Protect", "Respond", "Recover", "Govern", "Detect"],
+        id: 13,
+        nist: ["Protect"],
         cis: {
-            header: "Inventory and Control of Software Assets",
-            body: "Actively manage all software on the network so that only authorized software is installed and can execute, and that unauthorized and unmanaged software is found and prevented from installation or execution."
+            header: "Application Software Security",
+            body: "Manage the security life cycle of in-house developed, hosted, or acquired software to prevent, detect, and remediate security weaknesses before they can impact the organization."
         },
-        ot: [{
+        ot: [
+        {
             id: 1,
-            header: "Software Inventory",
-            paid: ["Certero for Enterprise SAM", "LanSweeper", "ServiceNow Software Asset", "Management","SnipeIT", "Xupervisor"],
-            free: ["Password-Protected Excel Sheet", "SnipeIT self-hosted"]
+            header: "Software Composition Analysis (SCA) / Static Application Security Testing (SAST)",
+            paid: ["Burp Suite Professional", "Checkmarx", "Fortify", "Invicti", "Synk", "Synopsys", "Veracode"],
+            free: ["Burp Suite Community", "GitLab", "Sync", "Zed Attack Proxy"]
         },
-            {
-                id: 2,
-            header: "Software 222 Inventory",
-            paid: ["Certero for Enterprise SAM", "LanSweeper", "ServiceNow Software Asset", "Management","SnipeIT", "Xupervisor"],
-            free: ["Password-Protected Excel Sheet", "SnipeIT self-hosted"]
+        {
+            id: 2,
+            header: "Bug Bounty",
+            paid: ["Bugcrowd", "Hackerone"],
+            free: []
         },
-            {
-                id: 3,
-            header: "Software 333 Inventory",
-            paid: ["Certero for Enterprise SAM", "LanSweeper", "ServiceNow Software Asset", "Management","SnipeIT", "Xupervisor"],
-            free: ["Password-Protected Excel Sheet", "SnipeIT self-hosted"]
+        {
+            id: 3,
+            header: "Web Application Firewall (WAF) / Web Application and API Protection (WaaP)",
+            paid: ["Fastly WAF", "Sucuri WAF", "Cloudflare WAF", "Imperva WAF", "Barracuda WAF", "F5 WAF"],
+            free: ["Mod Security"]
+        },
+        {
+            id: 4,
+            header: "Dynamic Application Security Testing (DAST)",
+            paid: [],
+            free: ["Acunetix", "Detectify", "Fortify", "Netsparker"]
+        },
+        {
+            id: 5,
+            header: "Interactive Application Security Testing (ISAT)",
+            paid: [],
+            free: ["Acunetix", "Checkmarx", "Data Theorem", "Fortify"]
         }
     ],
-        practices: `<!DOCTYPE html><html><body><p>Develop policies/procedures for conducting software 
-        inventory that includes who will manage the process, what tools will be used to aid in the process, 
-        and how these tools will be used.</p> <p>Determine what information requirements exist for inventory.</p>
-        <p>This minimally include the following;</p>
+        practices: `<!DOCTYPE html><html><body>
+        <p>For most critical infrastructure organizations (asset owners) reference Development Group 1.</p>
+        <p>The first step in developing an application security program is implementing a vulnerability management process. This process must integrate into the development life cycle and should be lightweight to insert into the standard bug-fixing progress. The process should include root cause analysis to fix underlying flaws so as to reduce future vulnerabilities, and a severity rating to prioritize remediation efforts.</p>
+        <p>SAFECode developed a three-tiered approach to help organizations identify which Development Group (DG) they fit in as a maturity scale for development programs. The three CIS IG levels used within the Safeguards inspired their approach for the DGs below:</p>
+
+        <p><strong>Development Group 1 (Most Organizations)</strong></p>
+        <p>Description: An organization that relies on off-the-shelf or open-source software. Very little to no additional coding done by the organization.</p>
+        <p>Security Focus: Applying basic operational and procedural best practices and managing the security of its vendor-supplied software. Follow overall security best practices mentioned in this website as well vendor application hardening guides.</p>
+        <ol>
+        <li>Create and Manage a Vulnerability Response Process</li>
+        <li>Perform Root Cause Analysis</li>
+            <ul>
+            <li>Rather than just fixing the reporting vulnerability, understand the nature of the defect. Is this something that is occurring repeatedly? Do we need new tools, training, or to update policies/procedures?</li>
+            </ul>
+        <li>Secure Third-Party Code</li>
+            <ul>
+            <li>Select vendor software that aligns to best practice security practices.</li>
+                <ul>
+                <li>Understand what third-party software is in your environment</li>
+                <li>Ask the vendor how they align to security requirements / standards</li>
+                    <ul>
+                    <li>NIST 800-53, SOC 2, HIPPA, Common Criteria, ISASecure, and DODIN.</li>
+                    </ul>
+                <li>Understand the current CVE’s associated with that software. https://nvd.nist.gov/</li>
+                <li>Harden the third-party software using vendor hardening guides and following overall cybersecurity best practices.</li>
+                </ul>
+            </ul>
+        <li>Have a Rating System</li>
+            <ul>
+            <li>To prioritize vulnerabilities</li>
+            </ul>
+        </ol>
+
+        <p><strong>Development Group 2</strong></p>
+        <p>Description: The organization relies on some custom (in-house or contractor-developed) web and/or native code applications integrated with third-party components and runs on-premises or in the cloud.</p>
+        <p>Security Focus: Addressing common vulnerabilities, motivating the organization, training developers, using secure design, utilizing platform security features, and minimizing attack surface.</p>
+
+        <ol>
+        <li>1) Do the Easy Stuff</li>
+            <ul>
+            <li>Address the most common vulnerabilities that incur the most risk.</li>
+            <li>OSWASP Top 10 and CWE Top 25 Most Dangerous Software Weaknesses</li>
+            </ul>
+        <li>2) Motivate the Organization</li>
+        <li>3) Train the Developers</li>
+             <ul>
+            <li>Security Engineering Training by SAFECode</li>
+            <li>Open Source Security Foundation (OpenSSF)</li>
+            </ul>
+        <li>4) Use a Secure Design</li>
+            <ul>
+            <li>Principals of Secure Design</li>
+            </ul>
+        <li>5) Use Platform Security Features</li>
+            <ul>
+            <li>Encryption</li>
+            <li>Identification, authentication, authorization</li>
+            <li>Auditing and Logging</li>
+            </ul>
+        <li>6) Minimize Attack Surface</li>
+        </ol>
+
+        <p><strong>Development Group 3</strong></p>
+        <p>Description: The organization makes a major investment in custom software that it requires to run its business and serve its customers.</p>
+        <p>Security Focus: Avoiding code vulnerabilities, conducting threat modeling, and using various application security tools.</p>
+        <ol>
+        <li>1) Avoid Code Vulnerabilities</li>
+            <ul>
+            <li>Root cause analysis</li>
+            <li>Integrate security into development</li>
+            <li>Select tools and enable tests cautiously</li>
+            <li>Run code analysis tools</li>
+            <li>Run dynamic testing tools</li>
+            <li>Use code-level penetration testing</li>
+            <li>Have a bug bounty program</li>
+            </ul>
+        <li>2) Threat Model</li>
+            <ul>
+            <li>SAFECode's paper Tactical Threat Modeling</li>
+            </ul>
+        </ol>
+
+        <p><strong>Application Security Tools</strong></p>
+        <p>SCA (Software Composition Analysis)</p>
+        <p>When to use: Throughout the SDLC, especially during the dependency analysis phase. To identify known vulnerabilities in third-party libraries and open-source components.</p>
+        <p>Focuses on identifying, managing, and securing open-source and third-party components used in software applications. It plays a crucial role in assessing and mitigating security risks associated with the use of external libraries and components.</p>
+        <p>SAST (Static Application Security Testing)</p>
+        <p>When to use: During the development phase or early in the Software Development Life Cycle (SDLC). To find vulnerabilities in the source code before the application is compiled or run.</p>
+        <p>Conducted at the development stage and involves a tester who is fully knowledgeable about the program under test. At predetermined intervals, testers can examine their code to make sure security flaws are introduced early in the development process. Stated differently, this type of testing allows testers to identify and report vulnerabilities that may result in security problems.</p>
+        <p>DAST (Dynamic Application Security Testing)</p>
+        <p>When to use: After the tool is deployed to a testing or production environment. To identify vulnerabilities that can be exploited in a live environment.</p>
+        <p>DAST testing, which is carried out when the code is running, is akin to black-hat or black-box testing in which the tester is blind to the system. Through the detection of problems with scripting, sessions, interfaces, answers, and complicated patterns, it aids in simulating assaults on production systems.</p>
+        <p>IAST (Interactive Application Security Testing)</p>
+        <p>When to use: During the development and testing phases. To provide real-time feedback to developers about security issues.</p>
+        <p>This incorporates aspects of both dynamic and static testing. While the program is being run for dynamic testing, the IAST tools operate inside it to test security vulnerabilities, providing extra coverage and higher-quality test outcomes.</p>
+        <p><strong>For Additional Guidance:</strong></p>
         <ul>
-        <li>•Software name</li>
-        <li>•Software version</li>
-        <li>•Software developer</li>
+        <li>NIST 800-218: Secure Software Development Framework</li>
+        <li>SAFECode Application Security Addendum-<u>SAFECode</u></li>
+        <li>The Software Alliance- <u>The Software Alliance</u></li>
+        <li>OWASP®-<u>OWASP®</u></li>
+        <li>OWASP Top Ten - <u>OWASP Top Ten</u></li>
+        <li>CWE Top 25 Most Dangerous Software Weaknesses - <u>CWE Top 25</u></li>
+        <li>Application Security Tool Map - <u>AppSecMap</u></li>
         </ul>
-        <p>Determine if the tool selected meets requirements</p>
+        <p></p>
+        <p></p>
+
         </body></html>
-        <h5>There are two main types of software inventory methods</h5>
-        <p>Passive: Inventory data gathered by actively polling devices on the network. 
-        Additional data is introduced on the network to gather this data.</p>
-        <p>Active: Inventory data most commonly collected by a SPAN port. 
-        No additional data is introduced on the network to gather this information.</p>
-        <p>To meet this CIS requirement or Critical Control. Organizations will need to 
-        understand the software needed for operations and collect what software is currently 
-        being used by manually inventorying software or by using an automated solution, some 
-        of the popular solutions listed to the left. From here, deltas can be created between 
-        what is needed for operations and what software exists in the environment.</p>
-        <p>From this baseline, Application Allowlist solutions can be used to prevent any 
-        additional software from running other than what is required for operations.</p>
-        <p>Application Allowlist solutions have a very high RIO and should be high on the list
-         when looking at implementing endpoint protection. Most application allowlist solutions 
-         allows the administrator to run the tool in audit mode. Audit mode or learning mode. 
-         Before running learning mode on end devices use a tool such as MalwareBytes to ensure 
-         no malware is added to the whitelist. After learning mode is complete to establish the
-         list of known good software, put the whitelisting tool in enforce mode to block any added
-          software. Additionally, organizations can enable software downloaded from authorized vendors. 
-          This eases the maintenance and number of helpdesk tickets, as it still allows users to install 
-          typical software they may need. Granted in a typical ICS environment needing additional client
-           software on a continual basis is seldomly required.</p>
-        <p>For Additional Guidance:<br />NIST 800-167 Guide to Application Whitelisting</p>
         `,
         maturity: "Member"
     },
+    {
+        id: 14,
+        nist: ["Respond", "Recover"],
+        cis: {
+            header: "Incident Response Management",
+            body: "Establish a program to develop and maintain an incident response capability (e.g., policies, plans, procedures, defined roles, training, and communications) to prepare, detect, and quickly respond to an attack."
+        },
+        ot: [
+        {
+            id: 1,
+            header: "Incident Response Tools",
+            paid: [],
+            free: ["Microsoft Word", "PagerDuty", "Jira"]
+        }
+    ],
+        practices: `<!DOCTYPE html><html><body>
+        <p>Penetration Testing is different from every other cyber assessment in the fact that the security controls of an organization are real-world tested. During the assessment, the hired or in house hackers will actively try to exploit weaknesses in the environment. It is a mature assessment that can grant real-world findings and uncover results beyond the scope of a typical risk, vulnerability, or compliance assessment.</p>
+        <p>While these assessments are typically carried out by professional cyber contractors, bigger organizations may have in-house internal penetration testers.</p>
+        <p><strong>There are two core types of penetration testing assessment types.</strong></p>
+        <p>Black Box: Mimics the perspective of an external attacker with no prior knowledge of the target system. The tester has no access to the internal architecture, source code, or infrastructure details.</p>
+        <p>White Box: Involves comprehensive knowledge of the internal workings of the system or application being tested. The tester has access to detailed information about the target, including source code, architecture, and infrastructure.</p>
+
+        <p>Conducting Penetration Testing in OT</p>
+        <p>Ensure that whether the penetration is done in-house or by external consultants, they have previous experience with critical infrastructure environments. Unlike IT, Critical infrastructure environments present the severe risk of health, safety, and environmental consequences.</p>
+        <p>OT organizations should consider black box tests on the external or IT zones. However, down in the Purdue Model Level 3.5 DMZ or OT zones, white box tests should really be the only types of attacks used, given the overwhelming risk to trip a system that can cause health, safety, or environment consequences. If possible, try and schedule penetration tests during operational downtime. Now this can be hard, given that a penetration testing project can last weeks, but try to time the active exploitation phase around these periods.</p>
+        <p>Also, there is a belief that penetration tests are farther in the OT/ICS security journey. However, I would argue that it should be far earlier. You see, the belief is that organizations should go through the Awareness, Program Development, Oh Wow Moment, Execution, Integration, and Optimization phases of their cybersecurity program and, towards the end, use penetration tests to validate their controls. What if organizations used penetration tests to drive the baseline of controls? To identify what is actually at risk, using these simulated attacks. That’s what I would argue. Not that penetration tests and the results that come out of the assessment should be the sole drivers for what cybersecurity controls to implement. However, don’t wait till the end. And continually do them throughout your security lifecycle.</p>
+        <p>Lastly, consider non-intrusive white box simulated attacks where the person carrying out the penetration has deep knowledge about the organization (to know what to stay away from) goes through the recondense phase, identifies initial access points, pivots to multiple parts of the network, finds vulnerabilities and matching exploits, but doesn't actually execute. Is, instead, at this step, aided by the organization to get access to that machine and then use non-intrusive living off the land techniques to see what else he/she can accomplish and so on and so forth. Sort of a hand-held white box penetration test.</p>
+
+        <p><strong>To meet the intent of the CIS Critical Control:</strong></p>
+        <ol>
+        <li>Organizations depending on requirements should look to have yearly penetration testing assessment completed</li>
+        <li>Remediate the findings prioritizing the highest risk first</li>
+        <li>Validate security measures after each penetration test</li>
+        <li>Create a penetration testing program that includes policies/procedures to ensure this process is owned by someone internally; expectations, requirements, and previous results are documented</li>
+        </ol>
+
+        <p>Tools to Perform Penetration Testing</p>
+
+        <p>Kali Linux is the primary operating system used to perform penetration tests. Within Kali Linux are a slew of pre-installed tools pertaining specifically to penetration testing. Of course, other external tools outside of Kali Linux exist to conduct penetration testing.</p>
+        <p>Penetration testing is not something a low to mid-level IT professional picks up and tries against a live environment. Unless an organization plans to hire a dedicated internal penetration tester, it is almost always advised to hire a penetration testing consulting firm.</p>     
+
+        <p>Automated Penetration Testing Platforms</p>
+        <p>While still immature from a technology and development perspective, automated penetration testing tools are coming to market that in the next 5-10 years could bridge the gap on manual penetration testing.</p>
+        <p>Meaning, while it’s unlikely automated penetration testing platforms such as BASs will replace manual penetration testing done by humans. Breach and Attack simulation tools could be a cheaper alternative for smaller organizations, and allow organizations to test more frequently.</p>
+
+        <p>In the best-case scenario, both would work in harmony. Where penetration testing answers the question “can they get in?” Breach and attack simulation (BAS) tools help you to answer the question “do my security tools work?”</p>
+        
+        </body></html>
+        `,
+        maturity: "Member"
+    },
+    {
+        id: 15,
+        nist: ["Govern"],
+        cis: {
+            header: "Penetration Testing",
+            body: "Establish a program to develop and maintain an incident response capability (e.g., policies, plans, procedures, defined roles, training, and communications) to prepare, detect, and quickly respond to an attack."
+        },
+        ot: [
+        {
+            id: 1,
+            header: "Breach and Attack Simulation (BAS)",
+            paid: ["AttackIQ", "Cymulate", "FireEye", "Picus Security", "SafeBreach", "XM Cyber"],
+            free: ["Kali Linux"]
+        },
+        {
+            id: 2,
+            header: "Tools to Perform Penetration Testing",
+            paid: [],
+            free: ["Kali Linux"]
+        },
+        {
+            id: 3,
+            header: "Vendors that offer Pen Testing as service (confirm their OT Pen testing experience)",
+            paid: [],
+            free: ["1898 & Co", "Blackhills", "Coal Fire", "SpectorOps"]
+        },
+    ],
+        practices: `<!DOCTYPE html><html><body>
+        <p>Incident Response Management</p>
+        <p>Today organizations can't simply prevent incidents with effective cybersecurity programs. Because of constantly increasing number of attacks, organizations must be proactive in creating an environment that is prepared to identify, contain, remove, and recover from cybersecurity incidents.</p>
+        <p>Incident Response Life Cycle</p>
+        <p>From NIST 800-61r2: Computer Security Incident Handling Guide Incident Response Team Structure From NIST 800-61r2: Computer Security Incident Handling Guide</p>
+        <p>Organization must minimally:</p>
+        <ol>
+        <li>Designate personnel to manage incident handling</li>
+        <li>Establish and maintain contact information for reporting security incidents</li>
+        <li>Establish and maintain an enterprise process for reporting incidents</li>
+        <li>Establish and maintain an incident response process</li>
+        <li>Assign key roles and responsibilities</li>
+        <li>Define mechanisms for communicating during incident response</li>
+        <li>Conduct routine incident response exercises or table-top-exercises</li>
+        <li>Conduct post-incident reviews</li>
+        <li>Establish and maintain security incident thresholds</li>
+        <li>Build incident response policies/procedures that cover these items</li>
+        </ol>
+
+        <p><strong>Incident Response Must Haves:</strong></p>
+        <ol>
+        <li>Define Severity Tiers</li>
+        <li>Every security incident needs to be categorized and given a level of severity. This aids in assigning service-level agreements, directing incident escalations, and alerting stakeholders to the possible or actual effects of an incident on the company. Which playbook to convey, who gets notified, and the escalation path are all determined by the severity.</li>
+        <li>Assign Roles and Responsibilities</li>
+        <li>Reacting to incidents effectively is a team sport. Keep a RACI chart that lists every job and responsibility for incident response inside the company. Include the C-suite, legal, privacy, and HR departments as common stakeholders.</li>
+        <li>Develop Detailed Response Playbooks</li>
+        <li>The CSIR team should develop specific playbooks for common or high-impact incident types — such as ransomware, as shown in this example. Response playbooks are intended to offer comprehensive instructions and processes that extend beyond the typical incident response plan of security.</li>
+        <li>Conduct Regular Tabletop Exercises</li>
+        <li>Tabletop exercises for incident response should involve decision-makers and leaders from within the company. A well-structured tabletop involves clearly defined goals and prearranged scenarios to which participants must respond. Tabletop cybersecurity exercises work best when they start with a scenario (like malware), then move through a succession of scenes where participants are required to respond to fresh information added to the situation. The ambiguity and progression of actual situations are replicated in this structure. Tabletop exercises should imitate the difficult questions that participants would have to answer in a real attack.</li>
+        <li>Report and know your government partners</li>
+        <li>From Jen Easterly, head of CISA (Cybersecurity and Infrastructure Security Agency): Know your local CISA and FBI contacts and regional offices.</li>
+        <li>They can help speed up the incident response process and help use this data to prevent similar attacks for other critical infrastructure organizations.</li>
+        <li><u>Find Regional CISA Office</u></li>
+        <li><u>Find Regional FBI Office</u></li>
+        </ol>
+
+        <p>In critical infrastructure, there is more of an underpinned sense of community and fufillment in providing critical services that sustain our everyday life. Reporting any and all cybersecurity incidents allows CISA and the FBI to analyze attack methods, threats, help speed up that process, and prevent this to happening for other organizations. Please do your part and report.</p>
+
+        <p><strong>Looking for somewhere to start?</strong></p>
+        <p>Highly recommend PagerDuty's Incident Response Guidance wiki. Linked below. Covers every step in a lot of detail. Very actionable.</p>
+       
+        <p><strong>Incident Response Tools</strong></p>
+        <p>Incident response tools are more about process management rather than a specific software solution that's the end all be all</p>
+        <p>Security Incident Response Example Policies</p>
+
+        <ul>
+        <li><u>CMU Incident Response Plan</u></li>
+        <li><u>UCOP Incident Response Standard</u></li>
+        <li><u>Michigan Cyber Incident Response</u></li>
+        </ul>
+
+        <p><strong>Security Incident Policy Templates</strong></p>
+        <ul>
+        <li><u>SANS Incident Handling Policy Templates</u></li>
+        </ul>
+
+        <p><strong>For Additional Guidance:</strong></p>
+        <ul>
+        <li><u>NIST 800-61r2: Computer Security Incident Handling Guide</u></li>
+        <li><u>PagerDuty Incident Response Guidance</u></li>
+        </ul>
+
+        </body></html>
+        `,
+        maturity: "Member"
+    },
+    {
+        id: 16,
+        nist: ["Detect"],
+        cis: {
+            header: "Safety (people, systems)",
+            body: "Establish a program to develop and maintain an incident response capability (e.g., policies, plans, procedures, defined roles, training, and communications) to prepare, detect, and quickly respond to an attack."
+        },
+        ot: [
+        {
+            id: 1,
+            header: "Breach and Attack Simulation (BAS)",
+            paid: ["AttackIQ", "Cymulate", "FireEye", "Picus Security", "SafeBreach", "XM Cyber"],
+            free: ["Kali Linux"]
+        },
+        {
+            id: 2,
+            header: "Tools to Perform Penetration Testing",
+            paid: [],
+            free: ["Kali Linux"]
+        },
+        {
+            id: 3,
+            header: "Vendors that offer Pen Testing as service (confirm their OT Pen testing experience)",
+            paid: [],
+            free: ["1898 & Co", "Blackhills", "Coal Fire", "SpectorOps"]
+        },
+    ],
+        practices: `<!DOCTYPE html><html><body>
+        <p>Incident Response Management</p>
+        <p>Today organizations can't simply prevent incidents with effective cybersecurity programs. Because of constantly increasing number of attacks, organizations must be proactive in creating an environment that is prepared to identify, contain, remove, and recover from cybersecurity incidents.</p>
+        <p>Incident Response Life Cycle</p>
+        <p>From NIST 800-61r2: Computer Security Incident Handling Guide Incident Response Team Structure From NIST 800-61r2: Computer Security Incident Handling Guide</p>
+        <p>Organization must minimally:</p>
+        <ol>
+        <li>Designate personnel to manage incident handling</li>
+        <li>Establish and maintain contact information for reporting security incidents</li>
+        <li>Establish and maintain an enterprise process for reporting incidents</li>
+        <li>Establish and maintain an incident response process</li>
+        <li>Assign key roles and responsibilities</li>
+        <li>Define mechanisms for communicating during incident response</li>
+        <li>Conduct routine incident response exercises or table-top-exercises</li>
+        <li>Conduct post-incident reviews</li>
+        <li>Establish and maintain security incident thresholds</li>
+        <li>Build incident response policies/procedures that cover these items</li>
+        </ol>
+
+        <p><strong>Incident Response Must Haves:</strong></p>
+        <ol>
+        <li>Define Severity Tiers</li>
+        <li>Every security incident needs to be categorized and given a level of severity. This aids in assigning service-level agreements, directing incident escalations, and alerting stakeholders to the possible or actual effects of an incident on the company. Which playbook to convey, who gets notified, and the escalation path are all determined by the severity.</li>
+        <li>Assign Roles and Responsibilities</li>
+        <li>Reacting to incidents effectively is a team sport. Keep a RACI chart that lists every job and responsibility for incident response inside the company. Include the C-suite, legal, privacy, and HR departments as common stakeholders.</li>
+        <li>Develop Detailed Response Playbooks</li>
+        <li>The CSIR team should develop specific playbooks for common or high-impact incident types — such as ransomware, as shown in this example. Response playbooks are intended to offer comprehensive instructions and processes that extend beyond the typical incident response plan of security.</li>
+        <li>Conduct Regular Tabletop Exercises</li>
+        <li>Tabletop exercises for incident response should involve decision-makers and leaders from within the company. A well-structured tabletop involves clearly defined goals and prearranged scenarios to which participants must respond. Tabletop cybersecurity exercises work best when they start with a scenario (like malware), then move through a succession of scenes where participants are required to respond to fresh information added to the situation. The ambiguity and progression of actual situations are replicated in this structure. Tabletop exercises should imitate the difficult questions that participants would have to answer in a real attack.</li>
+        <li>Report and know your government partners</li>
+        <li>From Jen Easterly, head of CISA (Cybersecurity and Infrastructure Security Agency): Know your local CISA and FBI contacts and regional offices.</li>
+        <li>They can help speed up the incident response process and help use this data to prevent similar attacks for other critical infrastructure organizations.</li>
+        <li><u>Find Regional CISA Office</u></li>
+        <li><u>Find Regional FBI Office</u></li>
+        </ol>
+
+        <p>In critical infrastructure, there is more of an underpinned sense of community and fufillment in providing critical services that sustain our everyday life. Reporting any and all cybersecurity incidents allows CISA and the FBI to analyze attack methods, threats, help speed up that process, and prevent this to happening for other organizations. Please do your part and report.</p>
+
+        <p><strong>Looking for somewhere to start?</strong></p>
+        <p>Highly recommend PagerDuty's Incident Response Guidance wiki. Linked below. Covers every step in a lot of detail. Very actionable.</p>
+       
+        <p><strong>Incident Response Tools</strong></p>
+        <p>Incident response tools are more about process management rather than a specific software solution that's the end all be all</p>
+        <p>Security Incident Response Example Policies</p>
+
+        <ul>
+        <li><u>CMU Incident Response Plan</u></li>
+        <li><u>UCOP Incident Response Standard</u></li>
+        <li><u>Michigan Cyber Incident Response</u></li>
+        </ul>
+
+        <p><strong>Security Incident Policy Templates</strong></p>
+        <ul>
+        <li><u>SANS Incident Handling Policy Templates</u></li>
+        </ul>
+
+        <p><strong>For Additional Guidance:</strong></p>
+        <ul>
+        <li><u>NIST 800-61r2: Computer Security Incident Handling Guide</u></li>
+        <li><u>PagerDuty Incident Response Guidance</u></li>
+        </ul>
+
+        </body></html>
+        `,
+        maturity: "Member"
+    },
+    {
+        id: 17,
+        nist: ["Govern"],
+        cis: {
+            header: "Supply Chain Security",
+            body: "Establish a program to develop and maintain an incident response capability (e.g., policies, plans, procedures, defined roles, training, and communications) to prepare, detect, and quickly respond to an attack."
+        },
+        ot: [
+        {
+            id: 1,
+            header: "Breach and Attack Simulation (BAS)",
+            paid: ["AttackIQ", "Cymulate", "FireEye", "Picus Security", "SafeBreach", "XM Cyber"],
+            free: ["Kali Linux"]
+        },
+        {
+            id: 2,
+            header: "Tools to Perform Penetration Testing",
+            paid: [],
+            free: ["Kali Linux"]
+        },
+        {
+            id: 3,
+            header: "Vendors that offer Pen Testing as service (confirm their OT Pen testing experience)",
+            paid: [],
+            free: ["1898 & Co", "Blackhills", "Coal Fire", "SpectorOps"]
+        },
+    ],
+        practices: `<!DOCTYPE html><html><body>
+        <p>Incident Response Management</p>
+        <p>Today organizations can't simply prevent incidents with effective cybersecurity programs. Because of constantly increasing number of attacks, organizations must be proactive in creating an environment that is prepared to identify, contain, remove, and recover from cybersecurity incidents.</p>
+        <p>Incident Response Life Cycle</p>
+        <p>From NIST 800-61r2: Computer Security Incident Handling Guide Incident Response Team Structure From NIST 800-61r2: Computer Security Incident Handling Guide</p>
+        <p>Organization must minimally:</p>
+        <ol>
+        <li>Designate personnel to manage incident handling</li>
+        <li>Establish and maintain contact information for reporting security incidents</li>
+        <li>Establish and maintain an enterprise process for reporting incidents</li>
+        <li>Establish and maintain an incident response process</li>
+        <li>Assign key roles and responsibilities</li>
+        <li>Define mechanisms for communicating during incident response</li>
+        <li>Conduct routine incident response exercises or table-top-exercises</li>
+        <li>Conduct post-incident reviews</li>
+        <li>Establish and maintain security incident thresholds</li>
+        <li>Build incident response policies/procedures that cover these items</li>
+        </ol>
+
+        <p><strong>Incident Response Must Haves:</strong></p>
+        <ol>
+        <li>Define Severity Tiers</li>
+        <li>Every security incident needs to be categorized and given a level of severity. This aids in assigning service-level agreements, directing incident escalations, and alerting stakeholders to the possible or actual effects of an incident on the company. Which playbook to convey, who gets notified, and the escalation path are all determined by the severity.</li>
+        <li>Assign Roles and Responsibilities</li>
+        <li>Reacting to incidents effectively is a team sport. Keep a RACI chart that lists every job and responsibility for incident response inside the company. Include the C-suite, legal, privacy, and HR departments as common stakeholders.</li>
+        <li>Develop Detailed Response Playbooks</li>
+        <li>The CSIR team should develop specific playbooks for common or high-impact incident types — such as ransomware, as shown in this example. Response playbooks are intended to offer comprehensive instructions and processes that extend beyond the typical incident response plan of security.</li>
+        <li>Conduct Regular Tabletop Exercises</li>
+        <li>Tabletop exercises for incident response should involve decision-makers and leaders from within the company. A well-structured tabletop involves clearly defined goals and prearranged scenarios to which participants must respond. Tabletop cybersecurity exercises work best when they start with a scenario (like malware), then move through a succession of scenes where participants are required to respond to fresh information added to the situation. The ambiguity and progression of actual situations are replicated in this structure. Tabletop exercises should imitate the difficult questions that participants would have to answer in a real attack.</li>
+        <li>Report and know your government partners</li>
+        <li>From Jen Easterly, head of CISA (Cybersecurity and Infrastructure Security Agency): Know your local CISA and FBI contacts and regional offices.</li>
+        <li>They can help speed up the incident response process and help use this data to prevent similar attacks for other critical infrastructure organizations.</li>
+        <li><u>Find Regional CISA Office</u></li>
+        <li><u>Find Regional FBI Office</u></li>
+        </ol>
+
+        <p>In critical infrastructure, there is more of an underpinned sense of community and fufillment in providing critical services that sustain our everyday life. Reporting any and all cybersecurity incidents allows CISA and the FBI to analyze attack methods, threats, help speed up that process, and prevent this to happening for other organizations. Please do your part and report.</p>
+
+        <p><strong>Looking for somewhere to start?</strong></p>
+        <p>Highly recommend PagerDuty's Incident Response Guidance wiki. Linked below. Covers every step in a lot of detail. Very actionable.</p>
+       
+        <p><strong>Incident Response Tools</strong></p>
+        <p>Incident response tools are more about process management rather than a specific software solution that's the end all be all</p>
+        <p>Security Incident Response Example Policies</p>
+
+        <ul>
+        <li><u>CMU Incident Response Plan</u></li>
+        <li><u>UCOP Incident Response Standard</u></li>
+        <li><u>Michigan Cyber Incident Response</u></li>
+        </ul>
+
+        <p><strong>Security Incident Policy Templates</strong></p>
+        <ul>
+        <li><u>SANS Incident Handling Policy Templates</u></li>
+        </ul>
+
+        <p><strong>For Additional Guidance:</strong></p>
+        <ul>
+        <li><u>NIST 800-61r2: Computer Security Incident Handling Guide</u></li>
+        <li><u>PagerDuty Incident Response Guidance</u></li>
+        </ul>
+
+        </body></html>
+        `,
+        maturity: "Member"
+    },
+    {
+        id: 18,
+        nist: ["Detect"],
+        cis: {
+            header: "Legacy System Security",
+            body: "Establish a program to develop and maintain an incident response capability (e.g., policies, plans, procedures, defined roles, training, and communications) to prepare, detect, and quickly respond to an attack."
+        },
+        ot: [
+        {
+            id: 1,
+            header: "Breach and Attack Simulation (BAS)",
+            paid: ["AttackIQ", "Cymulate", "FireEye", "Picus Security", "SafeBreach", "XM Cyber"],
+            free: ["Kali Linux"]
+        },
+        {
+            id: 2,
+            header: "Tools to Perform Penetration Testing",
+            paid: [],
+            free: ["Kali Linux"]
+        },
+        {
+            id: 3,
+            header: "Vendors that offer Pen Testing as service (confirm their OT Pen testing experience)",
+            paid: [],
+            free: ["1898 & Co", "Blackhills", "Coal Fire", "SpectorOps"]
+        },
+    ],
+        practices: `<!DOCTYPE html><html><body>
+        <p>Incident Response Management</p>
+        <p>Today organizations can't simply prevent incidents with effective cybersecurity programs. Because of constantly increasing number of attacks, organizations must be proactive in creating an environment that is prepared to identify, contain, remove, and recover from cybersecurity incidents.</p>
+        <p>Incident Response Life Cycle</p>
+        <p>From NIST 800-61r2: Computer Security Incident Handling Guide Incident Response Team Structure From NIST 800-61r2: Computer Security Incident Handling Guide</p>
+        <p>Organization must minimally:</p>
+        <ol>
+        <li>Designate personnel to manage incident handling</li>
+        <li>Establish and maintain contact information for reporting security incidents</li>
+        <li>Establish and maintain an enterprise process for reporting incidents</li>
+        <li>Establish and maintain an incident response process</li>
+        <li>Assign key roles and responsibilities</li>
+        <li>Define mechanisms for communicating during incident response</li>
+        <li>Conduct routine incident response exercises or table-top-exercises</li>
+        <li>Conduct post-incident reviews</li>
+        <li>Establish and maintain security incident thresholds</li>
+        <li>Build incident response policies/procedures that cover these items</li>
+        </ol>
+
+        <p><strong>Incident Response Must Haves:</strong></p>
+        <ol>
+        <li>Define Severity Tiers</li>
+        <li>Every security incident needs to be categorized and given a level of severity. This aids in assigning service-level agreements, directing incident escalations, and alerting stakeholders to the possible or actual effects of an incident on the company. Which playbook to convey, who gets notified, and the escalation path are all determined by the severity.</li>
+        <li>Assign Roles and Responsibilities</li>
+        <li>Reacting to incidents effectively is a team sport. Keep a RACI chart that lists every job and responsibility for incident response inside the company. Include the C-suite, legal, privacy, and HR departments as common stakeholders.</li>
+        <li>Develop Detailed Response Playbooks</li>
+        <li>The CSIR team should develop specific playbooks for common or high-impact incident types — such as ransomware, as shown in this example. Response playbooks are intended to offer comprehensive instructions and processes that extend beyond the typical incident response plan of security.</li>
+        <li>Conduct Regular Tabletop Exercises</li>
+        <li>Tabletop exercises for incident response should involve decision-makers and leaders from within the company. A well-structured tabletop involves clearly defined goals and prearranged scenarios to which participants must respond. Tabletop cybersecurity exercises work best when they start with a scenario (like malware), then move through a succession of scenes where participants are required to respond to fresh information added to the situation. The ambiguity and progression of actual situations are replicated in this structure. Tabletop exercises should imitate the difficult questions that participants would have to answer in a real attack.</li>
+        <li>Report and know your government partners</li>
+        <li>From Jen Easterly, head of CISA (Cybersecurity and Infrastructure Security Agency): Know your local CISA and FBI contacts and regional offices.</li>
+        <li>They can help speed up the incident response process and help use this data to prevent similar attacks for other critical infrastructure organizations.</li>
+        <li><u>Find Regional CISA Office</u></li>
+        <li><u>Find Regional FBI Office</u></li>
+        </ol>
+
+        <p>In critical infrastructure, there is more of an underpinned sense of community and fufillment in providing critical services that sustain our everyday life. Reporting any and all cybersecurity incidents allows CISA and the FBI to analyze attack methods, threats, help speed up that process, and prevent this to happening for other organizations. Please do your part and report.</p>
+
+        <p><strong>Looking for somewhere to start?</strong></p>
+        <p>Highly recommend PagerDuty's Incident Response Guidance wiki. Linked below. Covers every step in a lot of detail. Very actionable.</p>
+       
+        <p><strong>Incident Response Tools</strong></p>
+        <p>Incident response tools are more about process management rather than a specific software solution that's the end all be all</p>
+        <p>Security Incident Response Example Policies</p>
+
+        <ul>
+        <li><u>CMU Incident Response Plan</u></li>
+        <li><u>UCOP Incident Response Standard</u></li>
+        <li><u>Michigan Cyber Incident Response</u></li>
+        </ul>
+
+        <p><strong>Security Incident Policy Templates</strong></p>
+        <ul>
+        <li><u>SANS Incident Handling Policy Templates</u></li>
+        </ul>
+
+        <p><strong>For Additional Guidance:</strong></p>
+        <ul>
+        <li><u>NIST 800-61r2: Computer Security Incident Handling Guide</u></li>
+        <li><u>PagerDuty Incident Response Guidance</u></li>
+        </ul>
+
+        </body></html>
+        `,
+        maturity: "Member"
+    },
+    {
+        id: 19,
+        nist: ["Govern"],
+        cis: {
+            header: "Secure As-Built Design",
+            body: "Establish a program to develop and maintain an incident response capability (e.g., policies, plans, procedures, defined roles, training, and communications) to prepare, detect, and quickly respond to an attack."
+        },
+        ot: [
+        {
+            id: 1,
+            header: "Breach and Attack Simulation (BAS)",
+            paid: ["AttackIQ", "Cymulate", "FireEye", "Picus Security", "SafeBreach", "XM Cyber"],
+            free: ["Kali Linux"]
+        },
+        {
+            id: 2,
+            header: "Tools to Perform Penetration Testing",
+            paid: [],
+            free: ["Kali Linux"]
+        },
+        {
+            id: 3,
+            header: "Vendors that offer Pen Testing as service (confirm their OT Pen testing experience)",
+            paid: [],
+            free: ["1898 & Co", "Blackhills", "Coal Fire", "SpectorOps"]
+        },
+    ],
+        practices: `<!DOCTYPE html><html><body>
+        <p>Incident Response Management</p>
+        <p>Today organizations can't simply prevent incidents with effective cybersecurity programs. Because of constantly increasing number of attacks, organizations must be proactive in creating an environment that is prepared to identify, contain, remove, and recover from cybersecurity incidents.</p>
+        <p>Incident Response Life Cycle</p>
+        <p>From NIST 800-61r2: Computer Security Incident Handling Guide Incident Response Team Structure From NIST 800-61r2: Computer Security Incident Handling Guide</p>
+        <p>Organization must minimally:</p>
+        <ol>
+        <li>Designate personnel to manage incident handling</li>
+        <li>Establish and maintain contact information for reporting security incidents</li>
+        <li>Establish and maintain an enterprise process for reporting incidents</li>
+        <li>Establish and maintain an incident response process</li>
+        <li>Assign key roles and responsibilities</li>
+        <li>Define mechanisms for communicating during incident response</li>
+        <li>Conduct routine incident response exercises or table-top-exercises</li>
+        <li>Conduct post-incident reviews</li>
+        <li>Establish and maintain security incident thresholds</li>
+        <li>Build incident response policies/procedures that cover these items</li>
+        </ol>
+
+        <p><strong>Incident Response Must Haves:</strong></p>
+        <ol>
+        <li>Define Severity Tiers</li>
+        <li>Every security incident needs to be categorized and given a level of severity. This aids in assigning service-level agreements, directing incident escalations, and alerting stakeholders to the possible or actual effects of an incident on the company. Which playbook to convey, who gets notified, and the escalation path are all determined by the severity.</li>
+        <li>Assign Roles and Responsibilities</li>
+        <li>Reacting to incidents effectively is a team sport. Keep a RACI chart that lists every job and responsibility for incident response inside the company. Include the C-suite, legal, privacy, and HR departments as common stakeholders.</li>
+        <li>Develop Detailed Response Playbooks</li>
+        <li>The CSIR team should develop specific playbooks for common or high-impact incident types — such as ransomware, as shown in this example. Response playbooks are intended to offer comprehensive instructions and processes that extend beyond the typical incident response plan of security.</li>
+        <li>Conduct Regular Tabletop Exercises</li>
+        <li>Tabletop exercises for incident response should involve decision-makers and leaders from within the company. A well-structured tabletop involves clearly defined goals and prearranged scenarios to which participants must respond. Tabletop cybersecurity exercises work best when they start with a scenario (like malware), then move through a succession of scenes where participants are required to respond to fresh information added to the situation. The ambiguity and progression of actual situations are replicated in this structure. Tabletop exercises should imitate the difficult questions that participants would have to answer in a real attack.</li>
+        <li>Report and know your government partners</li>
+        <li>From Jen Easterly, head of CISA (Cybersecurity and Infrastructure Security Agency): Know your local CISA and FBI contacts and regional offices.</li>
+        <li>They can help speed up the incident response process and help use this data to prevent similar attacks for other critical infrastructure organizations.</li>
+        <li><u>Find Regional CISA Office</u></li>
+        <li><u>Find Regional FBI Office</u></li>
+        </ol>
+
+        <p>In critical infrastructure, there is more of an underpinned sense of community and fufillment in providing critical services that sustain our everyday life. Reporting any and all cybersecurity incidents allows CISA and the FBI to analyze attack methods, threats, help speed up that process, and prevent this to happening for other organizations. Please do your part and report.</p>
+
+        <p><strong>Looking for somewhere to start?</strong></p>
+        <p>Highly recommend PagerDuty's Incident Response Guidance wiki. Linked below. Covers every step in a lot of detail. Very actionable.</p>
+       
+        <p><strong>Incident Response Tools</strong></p>
+        <p>Incident response tools are more about process management rather than a specific software solution that's the end all be all</p>
+        <p>Security Incident Response Example Policies</p>
+
+        <ul>
+        <li><u>CMU Incident Response Plan</u></li>
+        <li><u>UCOP Incident Response Standard</u></li>
+        <li><u>Michigan Cyber Incident Response</u></li>
+        </ul>
+
+        <p><strong>Security Incident Policy Templates</strong></p>
+        <ul>
+        <li><u>SANS Incident Handling Policy Templates</u></li>
+        </ul>
+
+        <p><strong>For Additional Guidance:</strong></p>
+        <ul>
+        <li><u>NIST 800-61r2: Computer Security Incident Handling Guide</u></li>
+        <li><u>PagerDuty Incident Response Guidance</u></li>
+        </ul>
+
+        </body></html>
+        `,
+        maturity: "Member"
+    },
+    {
+        id: 20,
+        nist: ["Govern"],
+        cis: {
+            header: "Risk Management",
+            body: "Establish a program to develop and maintain an incident response capability (e.g., policies, plans, procedures, defined roles, training, and communications) to prepare, detect, and quickly respond to an attack."
+        },
+        ot: [
+        {
+            id: 1,
+            header: "Breach and Attack Simulation (BAS)",
+            paid: ["AttackIQ", "Cymulate", "FireEye", "Picus Security", "SafeBreach", "XM Cyber"],
+            free: ["Kali Linux"]
+        },
+        {
+            id: 2,
+            header: "Tools to Perform Penetration Testing",
+            paid: [],
+            free: ["Kali Linux"]
+        },
+        {
+            id: 3,
+            header: "Vendors that offer Pen Testing as service (confirm their OT Pen testing experience)",
+            paid: [],
+            free: ["1898 & Co", "Blackhills", "Coal Fire", "SpectorOps"]
+        },
+    ],
+        practices: `<!DOCTYPE html><html><body>
+        <p>Incident Response Management</p>
+        <p>Today organizations can't simply prevent incidents with effective cybersecurity programs. Because of constantly increasing number of attacks, organizations must be proactive in creating an environment that is prepared to identify, contain, remove, and recover from cybersecurity incidents.</p>
+        <p>Incident Response Life Cycle</p>
+        <p>From NIST 800-61r2: Computer Security Incident Handling Guide Incident Response Team Structure From NIST 800-61r2: Computer Security Incident Handling Guide</p>
+        <p>Organization must minimally:</p>
+        <ol>
+        <li>Designate personnel to manage incident handling</li>
+        <li>Establish and maintain contact information for reporting security incidents</li>
+        <li>Establish and maintain an enterprise process for reporting incidents</li>
+        <li>Establish and maintain an incident response process</li>
+        <li>Assign key roles and responsibilities</li>
+        <li>Define mechanisms for communicating during incident response</li>
+        <li>Conduct routine incident response exercises or table-top-exercises</li>
+        <li>Conduct post-incident reviews</li>
+        <li>Establish and maintain security incident thresholds</li>
+        <li>Build incident response policies/procedures that cover these items</li>
+        </ol>
+
+        <p><strong>Incident Response Must Haves:</strong></p>
+        <ol>
+        <li>Define Severity Tiers</li>
+        <li>Every security incident needs to be categorized and given a level of severity. This aids in assigning service-level agreements, directing incident escalations, and alerting stakeholders to the possible or actual effects of an incident on the company. Which playbook to convey, who gets notified, and the escalation path are all determined by the severity.</li>
+        <li>Assign Roles and Responsibilities</li>
+        <li>Reacting to incidents effectively is a team sport. Keep a RACI chart that lists every job and responsibility for incident response inside the company. Include the C-suite, legal, privacy, and HR departments as common stakeholders.</li>
+        <li>Develop Detailed Response Playbooks</li>
+        <li>The CSIR team should develop specific playbooks for common or high-impact incident types — such as ransomware, as shown in this example. Response playbooks are intended to offer comprehensive instructions and processes that extend beyond the typical incident response plan of security.</li>
+        <li>Conduct Regular Tabletop Exercises</li>
+        <li>Tabletop exercises for incident response should involve decision-makers and leaders from within the company. A well-structured tabletop involves clearly defined goals and prearranged scenarios to which participants must respond. Tabletop cybersecurity exercises work best when they start with a scenario (like malware), then move through a succession of scenes where participants are required to respond to fresh information added to the situation. The ambiguity and progression of actual situations are replicated in this structure. Tabletop exercises should imitate the difficult questions that participants would have to answer in a real attack.</li>
+        <li>Report and know your government partners</li>
+        <li>From Jen Easterly, head of CISA (Cybersecurity and Infrastructure Security Agency): Know your local CISA and FBI contacts and regional offices.</li>
+        <li>They can help speed up the incident response process and help use this data to prevent similar attacks for other critical infrastructure organizations.</li>
+        <li><u>Find Regional CISA Office</u></li>
+        <li><u>Find Regional FBI Office</u></li>
+        </ol>
+
+        <p>In critical infrastructure, there is more of an underpinned sense of community and fufillment in providing critical services that sustain our everyday life. Reporting any and all cybersecurity incidents allows CISA and the FBI to analyze attack methods, threats, help speed up that process, and prevent this to happening for other organizations. Please do your part and report.</p>
+
+        <p><strong>Looking for somewhere to start?</strong></p>
+        <p>Highly recommend PagerDuty's Incident Response Guidance wiki. Linked below. Covers every step in a lot of detail. Very actionable.</p>
+       
+        <p><strong>Incident Response Tools</strong></p>
+        <p>Incident response tools are more about process management rather than a specific software solution that's the end all be all</p>
+        <p>Security Incident Response Example Policies</p>
+
+        <ul>
+        <li><u>CMU Incident Response Plan</u></li>
+        <li><u>UCOP Incident Response Standard</u></li>
+        <li><u>Michigan Cyber Incident Response</u></li>
+        </ul>
+
+        <p><strong>Security Incident Policy Templates</strong></p>
+        <ul>
+        <li><u>SANS Incident Handling Policy Templates</u></li>
+        </ul>
+
+        <p><strong>For Additional Guidance:</strong></p>
+        <ul>
+        <li><u>NIST 800-61r2: Computer Security Incident Handling Guide</u></li>
+        <li><u>PagerDuty Incident Response Guidance</u></li>
+        </ul>
+
+        </body></html>
+        `,
+        maturity: "Member"
+    },
+    {
+        id: 21,
+        nist: ["Protect"],
+        cis: {
+            header: "Data Recovery",
+            body: "Establish and maintain data recovery practices sufficient to restore in-scope information systems to a pre-incident and trusted state."
+        },
+        ot: [
+        {
+            id: 1,
+            header: "Data Backup",
+            paid: ["Acronis", "Dell EMC", "Commvault", "IBM Storage", "Veeam", "Veritas"],
+            free: ["Network Appliances – Rancid, Oxidized", "Windows - Veeam Agent for Microsoft Windows Free", "Linux - Veeam Agent for Microsoft Linux Free", "HMIs - Vendor Engineer Software. If it isn't possible to tie into one of the solutions above.", "PLCs: Vendor Engineer Software"]
+        }
+    ],
+        practices: `<!DOCTYPE html><html><body>
+        <p>Data recovery has become a paramount concern for organizations. While the focus used to be primarily on preventing cyberattacks, there has been a recent shift in mindset. This shift is driven by the escalating frequency of attacks, particularly in critical infrastructure sectors that have historically lagged behind in robust cybersecurity measures. Now, organizations are advised to allocate significant attention to developing strategies for mitigating and remediating the consequences of cyber breaches. The emphasis is on being prepared for the eventuality of a successful hack.</p>
+
+        <p><strong>Key to the mitigation and remediation strategy revolves around data recovery.</strong></p>
+        <p><strong>Consider the 3-2-1 Methodology:</strong></p>
+        <ul>
+        <li>Three: Keep three copies of data, the original data copy, and at least two backups</li>
+        <li>Two: Use two different storage types. For instance, if data is stored on an internal hard drive, use a secondary device such as an external drive or cloud source</li>
+        <li>One: Keep one copy of data offsite</li>
+        </ul>
+
+        <p><strong>Organizations should develop a data recovery process that covers the following:</strong></p>
+        <ul>
+        <li>What systems/applications should be backed up (risk prioritize assets)</li>
+        <li>Where will these backups be stored (if stored online or on the network, the storage should be properly segmented)</li>
+        <li>How often will the backups occur</li>
+        <li>Will we automate the backups</li>
+        <li>How long will we keep the backups based upon regulation or storage capacity</li>
+        <li>Who has access to the backups</li>
+        <li>What backups will we encrypt</li>
+        <li>In the event of a cyber attack, is operations aware of how to recover from the backups</li>
+        </ul>
+
+        <p><strong>Ensure you are not just backing up your Windows operator stations, engineer stations, or data historians, but also your network equipment, project files, and other ICS configurations.</strong></p>
+        <p><strong>Project Files - PLCs/HMIs:</strong></p>
+
+        <ul>
+        <li>Low Maturity or small environment: Run a backup and store this logically (NAS, SharePoint, Fileserver) and physically (hard drive in fireproof safe as an example). Update backups minimally every time configuration changes occur. Put a date in the folder/file name to at least tell you when the configuration was taken.</li>
+        <li>For Higher Maturity or large environments with multiple engineers making configuration changes: Tools such as Version Dog or Copia can be used to pull configurations and for configuration change management. With Copia, DeviceLink used to pull configurations into its dashboard using an agent installed onto a PC at the site. Copia is Git-based version control. Under the dashboard, users can review the code and work together to make changes and keep track of versions.</li>
+        </ul>
+        
+        </body></html>
+        `,
+        maturity: "Member"
+    },
+    {
+        id: 22,
+        nist: ["Protect"],
+        cis: {
+            header: "Security Awareness and Skills Training",
+            body: "Establish and maintain a security awareness program to influence behavior among the workforce to be security conscious and properly skilled to reduce cybersecurity risks to the organization."
+        },
+        ot: [
+        {
+            id: 1,
+            header: "Phishing & Cybersecurity Training / Simulatio",
+            paid: ["KnowBe4", "PhishingBox", "Proofpoint Security Awareness Training", "NINJIO AWARE"],
+            free: []
+        }
+    ],
+        practices: `<!DOCTYPE html><html><body>
+        <p><strong>Personnel Cybersecurity Training</strong></p>
+        <p>Personnel cybersecurity training isn't just phishing training. Building a comprehensive security awareness program includes minimally the following:</p>
+        <ul>
+        <li>Personnel are trained to recognize social engineering attacks</li>
+        <li>On data handling best practices</li>
+        <li>On authentication best practices</li>
+        <li>On causes of unintentional data exposure</li>
+        <li>On recognizing and reporting security incidents</li>
+        <li>Identify and report if their enterprise assets are missing security updates</li>
+        <li>Dangers of connecting to and transmitting enterprise data over insecure networks</li>
+        <li>USB best practices</li>
+        <li>Constantly and are tested on their knowledge of cybersecurity concepts</li>
+        </ul>
+
+        <p><strong>Phishing:</strong></p>
+        <p>Phishing training is pretty straight forward. Through one of the solution providers, quiz and test your users to ensure they are continuously training to spot phishing attempts.</p>
+        <ul>
+        <li>Phishing training needs to not only include video based training, but also quizzes and simulation-based testing, sending test phishing emails to employees.</li>
+        <li>Phishing testing on employees should occur monthly.</li>
+        <li>Consider consequences for those that continually fail.</li>
+        </ul>
+
+        <p><strong>General and Role-Based Training:</strong></p>
+        <p>General and role-based training should go hand in hand with cyber roles and responsibilities and align with other policies and procedures, such as incident response plans. Every personnel member should minimally contribute to preventing cyberattacks through the use of email, web, USB, and job-specific cyber best practices. However, employees also need to be proactive and able to understand how to spot a cyberattack when they encounter one, knowing how to escalate quickly and effectively.</p>
+
+        <p><strong>Training your Cyber team:</strong></p>
+        <p>Often missed throughout the “cybersecurity lifecycle” is training your cybersecurity team. While they may be experts in certain niches of IT or cyber you must make sure they’re trained in the tool they’re using on a day to day or new tools around the corner. Misconfiguration and mismanagement of systems is one of the biggest causes of hacks. Not a zero-day or Stuxnet scenario but simply a misconfigured firewall. Or a legacy VPN account. This everyday gap in responsibility, training, or procedures causes most of the hacks today. Pay extra attention to this.</p>
+        <p>One method is to create a RACI matrix for your team. This breaks down who is responsible, accountable, consulted, and informed about various cybersecurity functions whether that is vulnerability scanning, updating x policy, etc.</p>
+
+        <p><strong>For Additional Guidance:</strong></p>
+        <p>NIST 800-50 Building an Information Technology Security Awareness and Training Program</p>
+       
+        </body></html>
+        `,
+        maturity: "Member"
+    }
   ];

@@ -56,22 +56,22 @@ const columns = [
   {
     key: "cis",
     label: "CIS Critical Control",
-    class: "bg-[#2B313A] text-white w-1/5",
+    class: "bg-[#2B313A] text-white",
   },
   {
     key: "ot",
     label: "OT Platform/Tool",
-    class: "h-26 bg-[#2B313A] text-white w-1/4",
+    class: "h-26 bg-[#2B313A] text-white w-[21%]",
   },
   {
     key: "practices",
     label: "High-Level Consnisteration/Best Practices",
-    class: "bg-[#2B313A] text-white",
+    class: "bg-[#2B313A] text-white w-[29%]",
   },
   {
     key: "maturity",
     label: "Maturity-based Requirements",
-    class: "bg-[#2B313A] text-white w-1/6",
+    class: "bg-[#2B313A] text-white",
   },
 ];
 </script>

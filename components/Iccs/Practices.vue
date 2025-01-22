@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="h-[250px] overflow-y-scroll">
+    <div class="h-[250px] w-[350px] border overflow-y-scroll">
       <div v-html="row.practices" class="text-wrap"></div>
     </div>
   </div>

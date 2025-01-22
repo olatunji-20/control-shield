@@ -1,5 +1,5 @@
 <template>
-  <div class="h-[250px] overflow-y-scroll">
+  <div class="h-[250px] border overflow-y-scroll">
     <div v-for="t in row.ot" :key="t.id" class="mb-6">
       <div>
         <h3 class="font-bold text-lg text-wrap">
@@ -7,7 +7,7 @@
         </h3>
         <p v-if="t.paid" class="font-bold leading-8">Paid</p>
         <ul class="list-disc pl-2">
-          <li v-for="p in t.paid" :key="p">
+          <li v-for="p in t.paid" :key="p" class="text-wrap">
             <div class="flex flex-row justify-between no-wrap">
               <p class="text-xs">{{ p }}</p>
               <div class="w-[30px] h-[20px] flex justify-between">
@@ -27,7 +27,7 @@
         </ul>
         <p v-if="t.free" class="font-bold leading-8">Free</p>
         <ul class="list-disc pl-2">
-          <li v-for="f in t.free" :key="f" class="text-xs">
+          <li v-for="f in t.free" :key="f" class="text-wrap">
             <div class="flex flex-row justify-between no-wrap">
               <p class="text-xs">{{ f }}</p>
               <div class="w-[30px] h-[20px] flex justify-between">

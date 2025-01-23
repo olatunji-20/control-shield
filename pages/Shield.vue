@@ -1,12 +1,12 @@
 <template>
-  <div class="px-16 py-12">
+  <div class="px-16 pt-8 pb-16">
     <h1 class="text-4xl font-semibold">
       Calculating Industry-wide Cyber Risk Exposure
     </h1>
     <p class="font-thin text-xl">
       Monitor global cyber threat activities and gain insights
     </p>
-    <h2 class="font-semibold py-8 ml-4 text-lg">Attacks distribution</h2>
+    <h2 class="font-semibold py-8 ml-4 text-xl">Attacks distribution</h2>
     <div class="border-2 border-red-400">
       <div class="py-4 border border-yellow-500">
         <div class="relative">
@@ -52,6 +52,12 @@
           </UTabs>
         </div>
       </div>
+    </div>
+    <div>
+      <ShieldChart />
+    </div>
+    <div>
+      <ShieldAttacks />
     </div>
   </div>
 </template>

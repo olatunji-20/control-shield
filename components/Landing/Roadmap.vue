@@ -117,38 +117,46 @@
           background-size: cover;
         "
       >
-        <h1 class="font-bold text-4xl">Become a member</h1>
-        <p class="font-thin text-xl">
-          Enjoy premium first hand offers when you join us
-        </p>
         <div
-          class="my-12 mx-auto grid grid-rows-2 grid-flow-col gap-4 text-shield-subgreen w-4/5"
+          style="
+            background-image: url(/landing-img/member-ellipse.png);
+            background-position: center;
+            background-size: cover;
+          "
         >
-          <p class="p-3 bg-white rounded-lg font-semibold text-md">
-            Annual Threat Reports
+          <h1 class="font-bold text-4xl">Become a member</h1>
+          <p class="font-thin text-xl">
+            Enjoy premium first hand offers when you join us
           </p>
-          <p
-            class="p-3 bg-white rounded-lg font-semibold text-md relative left-16"
+          <div
+            class="my-12 mx-auto grid grid-rows-2 grid-flow-col gap-4 text-shield-subgreen w-4/5"
           >
-            VAR discounts
-          </p>
-          <p class="p-3 bg-white rounded-lg font-semibold text-md">
-            Actionable Whitepapers
-          </p>
-          <p
-            class="p-3 bg-white rounded-lg font-semibold text-md relative left-16"
-          >
-            Industry-Leading Technology & Best Practices
-          </p>
-          <p class="p-3 bg-white rounded-lg font-semibold text-md">
-            Contribute
-          </p>
+            <p class="p-3 bg-white rounded-lg font-semibold text-md">
+              Annual Threat Reports
+            </p>
+            <p
+              class="p-3 bg-white rounded-lg font-semibold text-md relative left-16"
+            >
+              VAR discounts
+            </p>
+            <p class="p-3 bg-white rounded-lg font-semibold text-md">
+              Actionable Whitepapers
+            </p>
+            <p
+              class="p-3 bg-white rounded-lg font-semibold text-md relative left-16"
+            >
+              Industry-Leading Technology & Best Practices
+            </p>
+            <p class="p-3 bg-white rounded-lg font-semibold text-md">
+              Contribute
+            </p>
+          </div>
+          <UButton
+            label="Launch app"
+            size="xl"
+            class="rounded-full px-12 text-shield-black mt-12 py-5"
+          />
         </div>
-        <UButton
-          label="Launch app"
-          size="xl"
-          class="rounded-full px-12 text-shield-black mt-12 py-5"
-        />
       </div>
     </div>
   </div>

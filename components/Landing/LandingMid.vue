@@ -4,7 +4,7 @@
     <h2 class="text-4xl font-bold py-4">Features</h2>
     <p class="font-thin text-xl">Upcoming Features and Updates</p>
 
-    <div class="my-12 grid grid-cols-2 gap-12">
+    <div class="my-12 grid grid-cols-2 gap-4">
       <div
         class="border-2 border-shield-bd bg-shield-dark flex flex-col justify-between rounded-xl p-6"
       >

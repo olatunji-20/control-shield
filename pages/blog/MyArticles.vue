@@ -38,7 +38,7 @@
             list: {
               width: 'w-[500px]',
               height: 'h-16',
-              background: 'bg-shield-blac',
+              background: 'bg-shield-black',
               padding: 'p-0',
               rounded: 'rounded-none',
               tab: {

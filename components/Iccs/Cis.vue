@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="h-[250px] overflow-y-scroll">
+    <div class="h-[250px]">
       <h3 class="font-bold text-lg text-wrap">
         {{ row.cis.header }}
       </h3>

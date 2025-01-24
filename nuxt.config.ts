@@ -6,9 +6,9 @@ export default defineNuxtConfig({
   ui: {
     icons: ['material-symbols']
   },
-  modules: ['@nuxt/ui', '@nuxt/image'],
+  modules: ['@nuxt/ui', '@nuxt/image', 'nuxt-aos'],
   image: {
     domains: ['www.google.com'],
     provider: 'ipx'
-  }
+  },
 })

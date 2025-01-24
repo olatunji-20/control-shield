@@ -8,8 +8,14 @@
       <div
         class="border-2 border-shield-bd bg-shield-dark flex flex-col justify-between rounded-xl p-6"
       >
-        <div class="w-[100%] h-[400px] bg-shield-brown rounded-lg">
-          <div class=""></div>
+        <div class="w-[100%] h-[400px] bg-shield-brown rounded-lg relative">
+          <div class="h-[300px] w-[85%] absolute bottom-0 right-0">
+            <img
+              src="/landing-img/shield.png"
+              alt="shield-img"
+              class="w-[100%] h-[100%] object-fill"
+            />
+          </div>
         </div>
         <div class="text-left pt-6 flex-1 relative">
           <p class="font-bold text-3xl py-4">Shield</p>
@@ -33,8 +39,14 @@
       <div
         class="border-2 border-shield-bd bg-shield-dark flex flex-col rounded-xl p-6"
       >
-        <div class="w-[100%] h-[400px] bg-shield-brown rounded-lg">
-          <div class=""></div>
+        <div class="w-[100%] h-[400px] bg-shield-brown rounded-lg relative">
+          <div class="h-[300px] w-[85%] absolute bottom-0 left-0">
+            <NuxtImg
+              src="/landing-img/iccs.png"
+              alt="iccs-img"
+              class="w-[100%] h-[100%] object-fill"
+            />
+          </div>
         </div>
         <div class="text-left pt-6 flex-1">
           <p class="font-bold text-3xl py-4">ICCS</p>
@@ -82,9 +94,13 @@
         </div>
         <div class="w-[47%] flex items-center">
           <div
-            class="w-[100%] h-[400px] bg-shield-brown rounded-lg flex items-center"
+            class="w-[100%] h-[400px] bg-shield-brown rounded-lg flex items-center relative"
           >
-            <div class=""></div>
+            <NuxtImg
+              src="/landing-img/briefs.png"
+              alt="briefs-img"
+              class="w-[100%] h-[100%] object-fill"
+            />
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@
     v-if="editor"
     class="border-2 border-red-400 flex flex items-center p-4"
   >
-    <UButton
+    <!-- <UButton
       icon="i-material-symbols-text-format"
       label="Inter"
       @click="editor.chain().focus().toggleBold().run()"
@@ -14,9 +14,30 @@
       <template #trailing>
         <UIcon name="i-heroicons-chevron-down" class="w-5 h-5" />
       </template>
-    </UButton>
-    <UDropdown :items="items">
-      <UButton
+    </UButton> -->
+    <UButtonGroup
+      orientation="horizontal"
+      size="lg"
+      :ui="{
+        rounded: 'rounded-full',
+      }"
+      class="rounded-full"
+    >
+      <UButton icon="i-material-symbols-text-format" label="Inter" />
+      <UButton icon="i-heroicons-chevron-down-20-solid" />
+    </UButtonGroup>
+    <UButtonGroup
+      orientation="horizontal"
+      size="lg"
+      :ui="{
+        rounded: 'rounded-full',
+      }"
+      class="rounded-full ml-4"
+    >
+      <UButton icon="i-material-symbols-text-fields" label="Large" />
+      <UButton icon="i-heroicons-chevron-down-20-solid" />
+    </UButtonGroup>
+    <!-- <UButton
         icon="i-material-symbols-text-fields"
         label="Large"
         @click="editor.chain().focus().toggleBold().run()"
@@ -27,14 +48,13 @@
         <template #trailing>
           <UIcon name="i-heroicons-chevron-down" class="w-5 h-5" />
         </template>
-      </UButton>
-    </UDropdown>
-    <div class="px-4 bg-yellow-400 flex gap-x-2 rounded-full ml-6">
+      </UButton> -->
+    <div class="px-6 py-1 bg-yellow-400 flex gap-x-2 rounded-full ml-4">
       <UButton
         icon="i-material-symbols-format-underlined"
-        @click="editor.chain().focus().toggleBold().run()"
-        :disabled="!editor.can().chain().focus().toggleBold().run()"
-        :class="{ 'is-active': editor.isActive('bold') }"
+        @click="editor.chain().focus().toggleUnderline().run()"
+        :disabled="!editor.can().chain().focus().toggleUnderline().run()"
+        :class="{ 'is-active': editor.isActive('underline') }"
         class="p-2 bg-blue-300 rounded-full"
       />
       <UButton
@@ -83,20 +103,18 @@
       />
     </div>
 
-    <div class="px-4 bg-yellow-400 flex gap-x-2 rounded-full ml-6">
+    <div class="px-6 py-1 bg-yellow-400 flex gap-x-2 rounded-full ml-4">
       <UButton
         icon="i-material-symbols-code-off"
         variant="outline"
-        @click="editor.chain().focus().toggleBold().run()"
-        :disabled="!editor.can().chain().focus().toggleBold().run()"
-        :class="{ 'is-active': editor.isActive('bold') }"
+        @click="editor.chain().focus().toggleCode().run()"
+        :class="{ 'is-active': editor.isActive('code') }"
         class="p-2 bg-blue-300 rounded-full text-white"
       />
       <UButton
         icon="i-material-symbols-link"
-        @click="editor.chain().focus().toggleBold().run()"
-        :disabled="!editor.can().chain().focus().toggleBold().run()"
-        :class="{ 'is-active': editor.isActive('bold') }"
+        @click="editor.chain().focus().toggleLink().run()"
+        :class="{ 'is-active': editor.isActive('link') }"
         class="p-2 bg-blue-300 rounded-full"
       />
       <UButton
@@ -112,19 +130,39 @@
 </template>
 
 <script setup>
-import TextAlign from "@tiptap/extension-text-align";
 import { useEditor, EditorContent } from "@tiptap/vue-3";
 import StarterKit from "@tiptap/starter-kit";
+import Underline from "@tiptap/extension-underline";
+import BulletList from "@tiptap/extension-bullet-list";
+import Code from "@tiptap/extension-code";
+import TextAlign from "@tiptap/extension-text-align";
+import Link from "@tiptap/extension-link";
+import ListItem from "@tiptap/extension-list-item";
+import TextStyle from "@tiptap/extension-text-style";
 
 const editor = useEditor({
   editorProps: {
     attributes: {
       class:
-        "border-2 border-green-500 p-4 min-h-[16rem] max-h-[16rem] overflow-y-scroll",
+        "border-2 border-green-500 p-4 min-h-[16rem] max-h-[16rem] overflow-y-auto",
     },
   },
   content: "<p>I'm Sheriff, running Tiptap with Vue.js. 🎉</p>",
-  extensions: [StarterKit],
+  extensions: [
+    StarterKit,
+    Underline,
+    Code,
+    TextAlign.configure({
+      types: ["heading", "paragraph"],
+    }),
+    Link.configure({
+      openOnClick: false,
+      defaultProtocol: "https",
+    }),
+    TextStyle.configure({ types: [ListItem.name] }),
+    ListItem,
+    BulletList,
+  ],
 });
 
 onBeforeUnmount(() => {
@@ -137,5 +175,23 @@ const items = ["h1", "h2", "h3", "h4"];
 <style scoped>
 .is-active {
   @apply p-2 bg-red-400 rounded-full;
+}
+/* Basic editor styles */
+.tiptap {
+  :first-child {
+    margin-top: 0;
+  }
+
+  /* List styles */
+  ul,
+  ol {
+    padding: 0 1rem;
+    margin: 1.25rem 1rem 1.25rem 0.4rem;
+
+    li p {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+  }
 }
 </style>

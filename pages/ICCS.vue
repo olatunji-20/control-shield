@@ -170,7 +170,13 @@
       to look for when selecting, configuring, or managing the cybersecurity
       tools to meet the CIS Critical Controls.
     </p>
-    <IccsTable />
+    <UButton
+      icon="i-material-symbols-table-outline"
+      size="xl"
+      @click="scrollToTable"
+      class="fixed bottom-12 right-4 p-3 rounded-full"
+    />
+    <IccsTable id="iccs_table" />
   </div>
 </template>
 
@@ -178,6 +184,14 @@
 definePageMeta({
   layout: "auth-layout",
 });
+
+const scrollToTable = () => {
+  setTimeout(() => {
+    document
+      .getElementById("iccs_table")
+      .scrollIntoView({ behavior: "smooth", block: "start" });
+  }, 10);
+};
 </script>
 
 <style></style>
